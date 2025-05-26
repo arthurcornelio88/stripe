@@ -1,4 +1,3 @@
-```mermaid
 erDiagram
   CUSTOMERS {
     string id PK
@@ -67,4 +66,3 @@ erDiagram
   SUBSCRIPTIONS ||--o{ INVOICES : generates
   INVOICES ||--o{ CHARGES : includes
   PAYMENT_INTENTS ||--o{ CHARGES : triggers
-```
