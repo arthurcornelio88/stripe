@@ -23,7 +23,7 @@ class Product(Base):
 
     images = Column(JSONB, default=list)
     marketing_features = Column(JSONB, default=list)
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
 
     package_dimensions = Column(JSONB, nullable=True)
     shippable = Column(Boolean)

@@ -23,7 +23,7 @@ def stripe_charge_to_model(data: dict) -> Charge:
         billing_details=data.get("billing_details", {}),
         outcome=data.get("outcome"),
         payment_method_details=data.get("payment_method_details"),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         fraud_details=data.get("fraud_details", {}),
         description=data.get("description"),
         statement_descriptor=data.get("statement_descriptor"),

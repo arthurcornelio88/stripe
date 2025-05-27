@@ -25,7 +25,7 @@ def stripe_invoice_to_model(data: dict) -> Invoice:
         invoice_pdf=data.get("invoice_pdf"),
         number=data.get("number"),
         receipt_number=data.get("receipt_number"),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         lines=data.get("lines", {}),
         discounts=data.get("discounts", []),
         automatic_tax=data.get("automatic_tax"),

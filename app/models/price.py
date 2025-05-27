@@ -25,7 +25,7 @@ class Price(Base):
 
     nickname = Column(String)
     lookup_key = Column(String)
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
 
     tax_behavior = Column(String)
     tiers_mode = Column(String)

@@ -26,7 +26,7 @@ class Subscription(Base):
     cancel_at_period_end = Column(Boolean, default=False)
     livemode = Column(Boolean, default=False)
 
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
     items = Column(JSONB, default=list)
     invoice_settings = Column(JSONB, nullable=True)
     automatic_tax = Column(JSONB, nullable=True)

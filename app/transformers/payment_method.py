@@ -9,7 +9,7 @@ def stripe_payment_method_to_model(data: dict) -> PaymentMethod:
         livemode=data.get("livemode", False),
         customer_id=data.get("customer"),
         billing_details=data.get("billing_details", {}),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         us_bank_account=data.get("us_bank_account"),
         card=data.get("card")
     )

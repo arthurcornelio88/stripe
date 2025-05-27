@@ -17,7 +17,7 @@ def stripe_product_to_model(data: dict) -> Product:
         url=data.get("url"),
         images=data.get("images", []),
         marketing_features=data.get("marketing_features", []),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         package_dimensions=data.get("package_dimensions"),
         shippable=data.get("shippable")
     )

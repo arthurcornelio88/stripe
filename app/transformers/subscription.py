@@ -15,7 +15,7 @@ def stripe_subscription_to_model(data: dict) -> Subscription:
         ended_at=datetime.fromtimestamp(data["ended_at"]) if data.get("ended_at") else None,
         cancel_at_period_end=data.get("cancel_at_period_end", False),
         livemode=data.get("livemode", False),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         items=data.get("items", {}),
         invoice_settings=data.get("invoice_settings"),
         automatic_tax=data.get("automatic_tax"),

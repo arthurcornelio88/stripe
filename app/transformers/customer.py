@@ -18,6 +18,6 @@ def stripe_customer_to_model(data: dict) -> Customer:
         address=data.get("address"),
         shipping=data.get("shipping"),
         invoice_settings=data.get("invoice_settings"),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         tax_exempt=data.get("tax_exempt")
     )

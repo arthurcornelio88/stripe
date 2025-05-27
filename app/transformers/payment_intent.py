@@ -23,7 +23,7 @@ def stripe_payment_intent_to_model(data: dict) -> PaymentIntent:
         payment_method_types=data.get("payment_method_types", []),
         payment_method_options=data.get("payment_method_options"),
         amount_details=data.get("amount_details"),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         next_action=data.get("next_action"),
         statement_descriptor=data.get("statement_descriptor"),
         statement_descriptor_suffix=data.get("statement_descriptor_suffix")

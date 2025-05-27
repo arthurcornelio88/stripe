@@ -24,7 +24,7 @@ class Customer(Base):
     address = Column(JSONB, nullable=True)  # nested JSON
     shipping = Column(JSONB, nullable=True)
     invoice_settings = Column(JSONB, nullable=True)
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
 
     tax_exempt = Column(String)  # e.g. "none", "exempt", "reverse"
 

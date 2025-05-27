@@ -16,7 +16,7 @@ class PaymentMethod(Base):
     customer = relationship("Customer", backref="payment_methods")
 
     billing_details = Column(JSONB)
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
 
     # Optional: embed detailed method data
     us_bank_account = Column(JSONB, nullable=True)

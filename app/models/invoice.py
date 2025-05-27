@@ -39,7 +39,7 @@ class Invoice(Base):
     number = Column(String)
     receipt_number = Column(String)
 
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
     lines = Column(JSONB, default=list)
     discounts = Column(JSONB, default=list)
     automatic_tax = Column(JSONB, nullable=True)

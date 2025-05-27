@@ -33,7 +33,7 @@ class Charge(Base):
     billing_details = Column(JSONB)
     outcome = Column(JSONB)
     payment_method_details = Column(JSONB)
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
     fraud_details = Column(JSONB, default=dict)
 
     description = Column(String)

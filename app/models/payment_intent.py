@@ -36,7 +36,7 @@ class PaymentIntent(Base):
     payment_method_types = Column(JSONB, default=list)
     payment_method_options = Column(JSONB, nullable=True)
     amount_details = Column(JSONB, nullable=True)
-    metadata = Column(JSONB, default=dict)
+    stripe_metadata = Column(JSONB, default=dict)
     next_action = Column(JSONB, nullable=True)
     statement_descriptor = Column(String, nullable=True)
     statement_descriptor_suffix = Column(String, nullable=True)

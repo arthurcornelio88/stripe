@@ -16,7 +16,7 @@ def stripe_price_to_model(data: dict) -> Price:
         created=datetime.fromtimestamp(data["created"]),
         nickname=data.get("nickname"),
         lookup_key=data.get("lookup_key"),
-        metadata=data.get("metadata", {}),
+        stripe_metadata=data.get("metadata", {}),
         tax_behavior=data.get("tax_behavior"),
         tiers_mode=data.get("tiers_mode"),
         custom_unit_amount=data.get("custom_unit_amount"),
