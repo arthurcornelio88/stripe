@@ -1,0 +1,2 @@
+1) schema_er.png ne ressemble pas les vrais schemas, faute de place. j`ai pris les vrais schemas de l`api stripe
+2) PYTHONPATH=$(pwd) pytest tests/
