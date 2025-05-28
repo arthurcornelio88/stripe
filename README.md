@@ -22,6 +22,8 @@ The OLTP system supports real-time processing of high-frequency operations such 
 - Charges
 - Customer metadata
 
+> Take a look [here](docs/oltp.md), for a detailed OLTP flow description.
+
 ### 📌 Diagramming Process
 
 To design a robust and normalized schema for OLTP, we followed these steps:

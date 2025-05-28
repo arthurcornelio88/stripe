@@ -15,6 +15,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./init-test.sql:/docker-entrypoint-initdb.d/init-test.sql
 
 volumes:
   pgdata:
