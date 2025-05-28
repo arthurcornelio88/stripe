@@ -89,9 +89,14 @@ ingest-%:
 	@echo "📥 Ingesting table '$*' using --source=$(SOURCE)"
 	@python scripts/ingest/ingest_$*.py --source $(SOURCE) $(if $(FILE),--file $(FILE))
 
+check-db-integrity:
+	@echo "🔍 Checking database integrity..."
+	@python scripts/check_db_integrity.py
+
 ingest-all:
 	@echo "📦 Ingesting ALL tables from --source=$(SOURCE)"
 	@python scripts/ingest/ingest_all.py --source $(SOURCE) $(if $(JSON_DIR),--json-dir $(JSON_DIR))
+	@python scripts/check_db_integrity.py
 
 
 clean:
@@ -102,5 +107,8 @@ populate-all:
 	@$(MAKE) populate
 	@$(MAKE) fetch
 	@$(MAKE) ingest-all SOURCE=json JSON_DIR=data/imported_stripe_data
+
+all: init-all populate-all
+.PHONY: dev-env init-all init-db init-migration migrate upgrade-db reset-all reset-db reset-migration populate populate-force fetch ingest-% check-db-integrity ingest-all clean populate-all all
 
 

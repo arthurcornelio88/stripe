@@ -2,6 +2,7 @@
 2) readme
 - write ENV !
 3) verifier connexion a test_db
+4) refaire oltp.me 
 
 1. customers
 2. payment_methods

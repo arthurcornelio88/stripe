@@ -1,18 +1,32 @@
+# scripts/ingest/ingest_all.py
+
 import argparse
 import os
 import sys
 
-# Tables to ingest, in dependency-safe order
+# Tables to ingest in dependency-safe order
 TABLES = [
-    "customers",
-    "payment_methods",  # referenced by payment_intents
+    "customer",
+    "payment_method",      # referenced by payment_intents
     "products",
-    "prices",
-    "subscriptions",    # depends on customers + prices
-    "invoices",         # depends on subscriptions
-    "charges",          # depends on invoices/payment_intents
-    "payment_intents"   # depends on customers + payment_methods
+    "price",
+    "subscription",        # depends on customers + prices
+    "invoice",             # depends on subscriptions
+    "payment_intent",      # depends on customers + payment_methods
+    "charge"               # depends on payment_intents/invoices
 ]
+
+# Explicit map from table name to JSON filename
+TABLE_FILE_MAP = {
+    "customer": "customers.json",
+    "payment_method": "payment_methods.json",
+    "products": "products.json",
+    "price": "prices.json",
+    "subscription": "subscriptions.json",
+    "invoice": "invoices.json",
+    "payment_intent": "payment_intents.json",
+    "charge": "charges.json"
+}
 
 def run_ingestion(table, source, json_dir=None):
     script_path = f"scripts/ingest/ingest_{table}.py"
@@ -22,7 +36,8 @@ def run_ingestion(table, source, json_dir=None):
 
     cmd = f"python {script_path} --source {source}"
     if source == "json":
-        file_path = os.path.join(json_dir, f"{table}.json")
+        json_filename = TABLE_FILE_MAP.get(table)
+        file_path = os.path.join(json_dir, json_filename)
         if not os.path.isfile(file_path):
             print(f"⚠️  File missing for {table}: {file_path}")
             return
@@ -34,7 +49,7 @@ def run_ingestion(table, source, json_dir=None):
 def main():
     parser = argparse.ArgumentParser(description="Ingest all Stripe tables in order.")
     parser.add_argument("--source", choices=["api", "json"], required=True)
-    parser.add_argument("--json-dir", help="Directory with JSON exports (required for JSON source)")
+    parser.add_argument("--json-dir", help="Directory with JSON exports (required if source is json)")
     args = parser.parse_args()
 
     if args.source == "json" and not args.json_dir:

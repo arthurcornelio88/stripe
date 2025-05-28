@@ -57,37 +57,85 @@ Each table is designed with primary and foreign keys to support **ACID-compliant
 
 ---
 
-### 📦 Project Setup – OLTP DB & Migrations
+Great idea — completing that step-by-step block brings the entire OLTP setup full circle. Here's the **updated and complete** setup guide section, which fits perfectly into your existing README:
+
+---
+
+Here's how you can present the two pathways — **simple all-in-one** and **granular control** — in your README, keeping the tone and layout consistent with the rest of the guide:
+
+---
+
+### 📦 Project Setup – OLTP DB
 
 Before running any data logic or ingestion, you must prepare the **OLTP database schema and migration system**.
 
 Here’s a minimal step-by-step guide to get started:
+
+---
+
+#### 🧠 Option A – One-Liner Setup (Quick Start)
 
 ```bash
 # 1. Clone the repo
 git clone https://github.com/arthurcornelio88/stripe.git
 cd stripe
 
-# 2. Sync the environment using uv
+# 2. Sync the environment
 uv sync
 
 # 3. Activate the virtual environment
 source .venv/bin/activate
 
-# 4. Initialize the PostgreSQL container, create databases, apply migrations
-make init-all
+# 4. Do everything in one go: init, migrate, populate, fetch, ingest, verify
+make all
+```
+---
 
-# 5. Next steps...
-#    - Populate with test data
-#    - Run ingestion scripts
-#    - Explore analytical modeling (see OLAP section)
+#### 🛠️ Option B – Manual Step-by-Step (Full Control)
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/arthurcornelio88/stripe.git
+cd stripe
+
+# 2. Sync the environment
+uv sync
+
+# 3. Activate the virtual environment
+source .venv/bin/activate
+
+# 4. Initialize PostgreSQL container, create databases, apply migrations
+make init-db
+make init-migration
+
+# 5. Populate Stripe sandbox with sample test fixtures
+make populate
+
+# 6. Fetch data from Stripe and export it into local JSON files
+make fetch
+
+# 7. Ingest JSON data into PostgreSQL using SQLAlchemy
+make ingest-all SOURCE=json JSON_DIR=data/imported_stripe_data
+
+# 8. Verify row-level integrity and foreign key consistency
+make check-db
 ```
 
-> 💡 **Want the full story?**
-> How `init-all` works, what `alembic` does, how both `stripe_db` and `stripe_test` get created — it’s all explained in detail here:
+#### 💡 **Need to dive deeper?**
+> You’ll find full details on the database setup, Alembic workflow, and container schema sync here:
 > 👉 [`docs/create-db-and-migrations.md`](docs/create-db-and-migrations.md)
+> For an end-to-end walkthrough of the full ingestion pipeline — from sandbox population to data verification — head over to:
+> 👉 [`docs/populate-fetch-ingest.md`](docs/populate-fetch-ingest.md)
 
 ---
+
+This flow guarantees your database and Stripe are:
+
+* **DB: Initialized** with proper schema and migrations
+* **Stripe: Populated** with synthetic but consistent test data
+* **DB: Synchronized** with JSON snapshots of Stripe objects
+* **DB: Ingested** into normalized PostgreSQL tables
+* **DB: Verified** by row counts and foreign key integrity
 
 ## 📊 OLAP – Analytical Data Architecture
 
