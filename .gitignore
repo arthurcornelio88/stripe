@@ -17,4 +17,4 @@ old/*
 logs/
 
 # Data
-imported_stripe_data/*
+data/imported_stripe_data/*
