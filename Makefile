@@ -72,7 +72,11 @@ reset-migration:
 
 populate:
 	@echo "🚀 Populating Stripe sandbox with test fixtures..."
-	@python scripts/create_fixture.py fixtures/stripe_batch_fixture.json
+	@python scripts/populate.py --fixture fixtures/stripe_batch_fixture.json
+
+populate-force:
+	@echo "🚀 Force-populating Stripe sandbox with test fixtures..."
+	@python scripts/populate.py --force --fixture fixtures/stripe_batch_fixture.json'
 
 fetch:
 	@echo "📥 Fetching Stripe data into JSON files..."
@@ -81,12 +85,22 @@ fetch:
 	@./scripts/fetch_stripe_data.sh
 	@./scripts/fetch_payment_methods.sh
 
-ingest:
-	@echo "📦 Ingesting JSON into PostgreSQL..."
-	@python scripts/ingest_all.py
+ingest-%:
+	@echo "📥 Ingesting table '$*' using --source=$(SOURCE)"
+	@python scripts/ingest/ingest_$*.py --source $(SOURCE) $(if $(FILE),--file $(FILE))
+
+ingest-all:
+	@echo "📦 Ingesting ALL tables from --source=$(SOURCE)"
+	@python scripts/ingest/ingest_all.py --source $(SOURCE) $(if $(JSON_DIR),--json-dir $(JSON_DIR))
+
 
 clean:
 	@echo "🧹 Nettoyage des données locales..."
 	@rm -rf data/imported_stripe_data/*
 
-populate-all: populate fetch
+populate-all:
+	@$(MAKE) populate
+	@$(MAKE) fetch
+	@$(MAKE) ingest-all SOURCE=json JSON_DIR=data/imported_stripe_data
+
+
