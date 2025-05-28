@@ -67,3 +67,26 @@ reset-migration:
 	rm -rf alembic/versions/*
 	mkdir -p alembic/versions
 	make migrate m="reset migration"
+
+## === STRIPE WORKFLOW ===
+
+populate:
+	@echo "🚀 Populating Stripe sandbox with test fixtures..."
+	@python scripts/create_fixture.py fixtures/stripe_batch_fixture.json
+
+fetch:
+	@echo "📥 Fetching Stripe data into JSON files..."
+	@chmod +x scripts/fetch_stripe_data.sh
+	@chmod +x scripts/fetch_payment_methods.sh
+	@./scripts/fetch_stripe_data.sh
+	@./scripts/fetch_payment_methods.sh
+
+ingest:
+	@echo "📦 Ingesting JSON into PostgreSQL..."
+	@python scripts/ingest_all.py
+
+clean:
+	@echo "🧹 Nettoyage des données locales..."
+	@rm -rf data/imported_stripe_data/*
+
+populate-all: populate fetch
