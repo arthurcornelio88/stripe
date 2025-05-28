@@ -57,6 +57,38 @@ Each table is designed with primary and foreign keys to support **ACID-compliant
 
 ---
 
+### 📦 Project Setup – OLTP DB & Migrations
+
+Before running any data logic or ingestion, you must prepare the **OLTP database schema and migration system**.
+
+Here’s a minimal step-by-step guide to get started:
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/arthurcornelio88/stripe.git
+cd stripe
+
+# 2. Sync the environment using uv
+uv sync
+
+# 3. Activate the virtual environment
+source .venv/bin/activate
+
+# 4. Initialize the PostgreSQL container, create databases, apply migrations
+make init-all
+
+# 5. Next steps...
+#    - Populate with test data
+#    - Run ingestion scripts
+#    - Explore analytical modeling (see OLAP section)
+```
+
+> 💡 **Want the full story?**
+> How `init-all` works, what `alembic` does, how both `stripe_db` and `stripe_test` get created — it’s all explained in detail here:
+> 👉 [`docs/create-db-and-migrations.md`](docs/create-db-and-migrations.md)
+
+---
+
 ## 📊 OLAP – Analytical Data Architecture
 
 > _Section coming soon._

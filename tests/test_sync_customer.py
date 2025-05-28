@@ -6,7 +6,7 @@ from app.models.customer import Customer
 import os
 
 # Base de test (tu peux aussi mettre :5433 ou autre port)
-TEST_DB_URL = os.getenv("TEST_DATABASE_URL", "postgresql://stripe_user:stripe_pass@localhost:5432/stripe_test")
+TEST_DB_URL = os.getenv("TEST_DATABASE_URL", "postgresql://stripe_user:stripe_pass@localhost:5435/stripe_test")
 
 engine = create_engine(TEST_DB_URL)
 TestingSessionLocal = sessionmaker(bind=engine)

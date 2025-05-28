@@ -11,3 +11,7 @@ wheels/
 .env
 
 old/*
+
+#Log files
+*.log
+logs/

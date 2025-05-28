@@ -1,12 +1,10 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:14
     container_name: stripe_db
     restart: always
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:5432"  # Internal port stays 5432
     env_file:
       - .env
     environment:
@@ -15,7 +13,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./init-test.sql:/docker-entrypoint-initdb.d/init-test.sql
+      - ./init-multiple-dbs.sql:/docker-entrypoint-initdb.d/init-multiple-dbs.sql
 
 volumes:
   pgdata:

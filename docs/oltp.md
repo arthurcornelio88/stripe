@@ -183,12 +183,11 @@ tests/test_*.py: 16 passed in 2.49s 🎉
 * [x] Clean and isolated transformers
 * [x] Manual ingestion logic
 * [x] Full test coverage for insertions and duplicates
+* [x] DB and Alembic initialization, with automatization (Makefile, for CI/CI)
 
 ### 🧩 Still to Do
 
-* [ ] Introduce migrations (Alembic or equivalent)
-* [ ] Track schema changes over time
-* [ ] Generate initial `revision` for baseline
+* [ ] Feed the db with real data (Strip fixtures)
 
 ---
 
