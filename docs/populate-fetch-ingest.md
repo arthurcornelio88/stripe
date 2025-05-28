@@ -137,7 +137,7 @@ make check-db
 * Easy to debug intermediate steps
 * Works with any sandbox or test key
 
-You’re now ready to move on to **OLAP modeling**, confident that your OLTP layer is stable and ACID-safe.
+We’re now ready to move on to **OLAP modeling**, confident that the OLTP layer is stable and ACID-safe.
 
 > 🧭 Tip: Everything above is also runnable via `make populate-all`
 >
@@ -153,5 +153,3 @@ You’re now ready to move on to **OLAP modeling**, confident that your OLTP lay
 * [`schemas/schema_er.mmd`](../schemas/schema_er.mmd)
 
 ---
-
-© 2025 — Built with 💙 by Arthur Cornélio
