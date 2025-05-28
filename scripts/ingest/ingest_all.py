@@ -2,15 +2,16 @@ import argparse
 import os
 import sys
 
+# Tables to ingest, in dependency-safe order
 TABLES = [
     "customers",
+    "payment_methods",  # referenced by payment_intents
     "products",
     "prices",
-    "subscriptions",
-    "invoices",
-    "charges",
-    "payment_methods",
-    "payment_intents"
+    "subscriptions",    # depends on customers + prices
+    "invoices",         # depends on subscriptions
+    "charges",          # depends on invoices/payment_intents
+    "payment_intents"   # depends on customers + payment_methods
 ]
 
 def run_ingestion(table, source, json_dir=None):
@@ -31,9 +32,9 @@ def run_ingestion(table, source, json_dir=None):
     os.system(cmd)
 
 def main():
-    parser = argparse.ArgumentParser(description="Ingest all Stripe tables")
+    parser = argparse.ArgumentParser(description="Ingest all Stripe tables in order.")
     parser.add_argument("--source", choices=["api", "json"], required=True)
-    parser.add_argument("--json-dir", help="Required if source is json")
+    parser.add_argument("--json-dir", help="Directory with JSON exports (required for JSON source)")
     args = parser.parse_args()
 
     if args.source == "json" and not args.json_dir:

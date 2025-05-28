@@ -2,12 +2,28 @@ from app.models.subscription import Subscription
 from datetime import datetime
 
 def stripe_subscription_to_model(data: dict) -> Subscription:
+    """
+    Transform Stripe subscription API data into a Subscription ORM object.
+
+    Handles nested structures and optional fields safely.
+    """
+    # Handle customer: can be a dict or a string (ID)
+    customer = data.get("customer")
+    customer_id = customer["id"] if isinstance(customer, dict) else customer
+
+    # Defensive extraction of subscription item and recurring plan info
+    items = data.get("items", {}).get("data", [])
+    first_item = items[0] if items else {}
+    price = first_item.get("price", {}) if first_item else {}
+    subscription_item_id = first_item.get("id")
+    plan_interval = price.get("recurring", {}).get("interval")
+
     return Subscription(
         id=data["id"],
         status=data.get("status"),
         currency=data.get("currency"),
-        customer_id=data.get("customer"),
-        price_id=data["items"]["data"][0]["price"]["id"] if data.get("items", {}).get("data") else None,
+        customer_id=customer_id,
+        price_id=price.get("id"),
         start_date=datetime.fromtimestamp(data["start_date"]),
         created=datetime.fromtimestamp(data["created"]),
         cancel_at=datetime.fromtimestamp(data["cancel_at"]) if data.get("cancel_at") else None,
@@ -21,5 +37,7 @@ def stripe_subscription_to_model(data: dict) -> Subscription:
         automatic_tax=data.get("automatic_tax"),
         payment_settings=data.get("payment_settings"),
         trial_settings=data.get("trial_settings"),
-        latest_invoice=data.get("latest_invoice")
+        latest_invoice=data.get("latest_invoice"),
+        subscription_item_id=subscription_item_id,
+        plan_interval=plan_interval
     )

@@ -1,7 +1,6 @@
-from sqlalchemy import Column, String, Integer, Boolean, DateTime, JSON
+from sqlalchemy import Column, String, Integer, Boolean, DateTime
 from sqlalchemy.dialects.postgresql import JSONB
 from app.db.base import Base
-from datetime import datetime
 
 class Customer(Base):
     __tablename__ = "customers"
@@ -16,19 +15,19 @@ class Customer(Base):
     currency = Column(String(10))
     delinquent = Column(Boolean)
     livemode = Column(Boolean)
-    created = Column(DateTime)  # You'll parse UNIX timestamp to datetime
+    deleted = Column(Boolean, default=False)  # ✅ NEW: allows deleted customers to exist
+    created = Column(DateTime)  # parsed from UNIX timestamp
 
     invoice_prefix = Column(String)
     next_invoice_sequence = Column(Integer)
 
-    address = Column(JSONB, nullable=True)  # nested JSON
+    address = Column(JSONB, nullable=True)           # nested object
     shipping = Column(JSONB, nullable=True)
     invoice_settings = Column(JSONB, nullable=True)
     stripe_metadata = Column(JSONB, default=dict)
 
     tax_exempt = Column(String)  # e.g. "none", "exempt", "reverse"
 
-    default_payment_method_id = Column(String, nullable=True)  # customer.invoice_settings.default_payment_method
+    default_payment_method_id = Column(String, nullable=True)
 
-
-    # Optional: test_clock = Column(String)  # ID if used
+    test_clock = Column(String, nullable=True)  # Optional Stripe test_clock reference

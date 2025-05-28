@@ -1,3 +1,13 @@
 1) schema_er.png ne ressemble pas les vrais schemas, faute de place. j`ai pris les vrais schemas de l`api stripe
 2) readme
 - write ENV !
+3) verifier connexion a test_db
+
+1. customers
+2. payment_methods
+3. products
+4. prices
+5. subscriptions
+6. invoices
+7. payment_intents
+8. charges

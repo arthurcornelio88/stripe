@@ -2,10 +2,10 @@
   "object": "list",
   "data": [
     {
-      "id": "in_1RTmpqH5s72KxfglJiHrR8rH",
+      "id": "in_1RTmwlH1lINcoHaahLyXzWlr",
       "object": "invoice",
       "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
+      "account_name": "Arthur_2",
       "account_tax_ids": null,
       "amount_due": 1200,
       "amount_overpaid": 0,
@@ -26,25 +26,25 @@
       "automatically_finalizes_at": null,
       "billing_reason": "subscription_create",
       "collection_method": "charge_automatically",
-      "created": 1748449690,
+      "created": 1748450119,
       "currency": "eur",
       "custom_fields": null,
       "customer": {
-        "id": "cus_SOZjHBOeDupaFi",
+        "id": "cus_SOa6bpMu879kKO",
         "object": "customer",
         "address": null,
         "balance": 0,
-        "created": 1748448716,
+        "created": 1748450105,
         "currency": "eur",
         "default_source": null,
         "delinquent": false,
         "description": null,
         "discount": null,
         "email": "marc@example.com",
-        "invoice_prefix": "SEFRB2EF",
+        "invoice_prefix": "CRYXAGF7",
         "invoice_settings": {
           "custom_fields": null,
-          "default_payment_method": "pm_1RTmppH5s72KxfglqTrsVeGY",
+          "default_payment_method": "pm_1RTmwjH1lINcoHaarIH6YWEf",
           "footer": null,
           "rendering_options": null
         },
@@ -70,12 +70,12 @@
       "description": null,
       "discounts": [],
       "due_date": null,
-      "effective_at": 1748449690,
+      "effective_at": 1748450119,
       "ending_balance": 0,
       "footer": null,
       "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1p6ZGw0NDE3RmNUbVAwUTBlbVhzWURuRE40eUU4LDEzODk5MTExNw0200erXVrqjr?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1p6ZGw0NDE3RmNUbVAwUTBlbVhzWURuRE40eUU4LDEzODk5MTExNw0200erXVrqjr/pdf?s=ap",
+      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTmfeH1lINcoHaa/test_YWNjdF8xUlRtZmVIMWxJTmNvSGFhLF9TT2E2d2tVdVFCNFdrYkZGSXBiMHp5R1NXQkFvUUxPLDEzODk5NzgwNg0200SFbbPTJ5?s=ap",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTmfeH1lINcoHaa/test_YWNjdF8xUlRtZmVIMWxJTmNvSGFhLF9TT2E2d2tVdVFCNFdrYkZGSXBiMHp5R1NXQkFvUUxPLDEzODk5NzgwNg0200SFbbPTJ5/pdf?s=ap",
       "issuer": {
         "type": "self"
       },
@@ -85,7 +85,7 @@
         "object": "list",
         "data": [
           {
-            "id": "il_1RTmpqH5s72KxfglFyr0EnfU",
+            "id": "il_1RTmwlH1lINcoHaaB4keuajz",
             "object": "line_item",
             "amount": 1200,
             "currency": "eur",
@@ -93,7 +93,7 @@
             "discount_amounts": [],
             "discountable": true,
             "discounts": [],
-            "invoice": "in_1RTmpqH5s72KxfglJiHrR8rH",
+            "invoice": "in_1RTmwlH1lINcoHaahLyXzWlr",
             "livemode": false,
             "metadata": {},
             "parent": {
@@ -104,20 +104,20 @@
                 "proration_details": {
                   "credited_items": null
                 },
-                "subscription": "sub_1RTmpqH5s72Kxfgl2ARGa260",
-                "subscription_item": "si_SOZz9YcDISZdDb"
+                "subscription": "sub_1RTmwlH1lINcoHaahlNybnXp",
+                "subscription_item": "si_SOa6YnIZlJzLzT"
               },
               "type": "subscription_item_details"
             },
             "period": {
-              "end": 1751128090,
-              "start": 1748449690
+              "end": 1751128518,
+              "start": 1748450118
             },
             "pretax_credit_amounts": [],
             "pricing": {
               "price_details": {
-                "price": "price_1RTmhsH5s72KxfgleXQ4FNnU",
-                "product": "prod_SOZreiJha8BWUu"
+                "price": "price_1RTmwZH1lINcoHaaAyfIKRKI",
+                "product": "prod_SOa6bpvQORBghB"
               },
               "type": "price_details",
               "unit_amount_decimal": "1200"
@@ -128,18 +128,18 @@
         ],
         "has_more": false,
         "total_count": 1,
-        "url": "/v1/invoices/in_1RTmpqH5s72KxfglJiHrR8rH/lines"
+        "url": "/v1/invoices/in_1RTmwlH1lINcoHaahLyXzWlr/lines"
       },
       "livemode": false,
       "metadata": {},
       "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0015",
+      "number": "JFB9TOTG-0003",
       "on_behalf_of": null,
       "parent": {
         "quote_details": null,
         "subscription_details": {
           "metadata": {},
-          "subscription": "sub_1RTmpqH5s72Kxfgl2ARGa260"
+          "subscription": "sub_1RTmwlH1lINcoHaahlNybnXp"
         },
         "type": "subscription_details"
       },
@@ -148,8 +148,8 @@
         "payment_method_options": null,
         "payment_method_types": null
       },
-      "period_end": 1748449690,
-      "period_start": 1748449690,
+      "period_end": 1748450118,
+      "period_start": 1748450118,
       "post_payment_credit_notes_amount": 0,
       "pre_payment_credit_notes_amount": 0,
       "receipt_number": null,
@@ -160,9 +160,9 @@
       "statement_descriptor": null,
       "status": "paid",
       "status_transitions": {
-        "finalized_at": 1748449690,
+        "finalized_at": 1748450119,
         "marked_uncollectible_at": null,
-        "paid_at": 1748449690,
+        "paid_at": 1748450118,
         "voided_at": null
       },
       "subtotal": 1200,
@@ -173,13 +173,13 @@
       "total_excluding_tax": 1200,
       "total_pretax_credit_amounts": [],
       "total_taxes": [],
-      "webhooks_delivered_at": 1748449690
+      "webhooks_delivered_at": 1748450119
     },
     {
-      "id": "in_1RTmplH5s72KxfglpEbpINC8",
+      "id": "in_1RTmwgH1lINcoHaaz0bEqfRi",
       "object": "invoice",
       "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
+      "account_name": "Arthur_2",
       "account_tax_ids": null,
       "amount_due": 800,
       "amount_overpaid": 0,
@@ -200,25 +200,25 @@
       "automatically_finalizes_at": null,
       "billing_reason": "subscription_create",
       "collection_method": "charge_automatically",
-      "created": 1748449685,
+      "created": 1748450114,
       "currency": "eur",
       "custom_fields": null,
       "customer": {
-        "id": "cus_SOZjpQh6fXgvn7",
+        "id": "cus_SOa6LLDPO9uZGq",
         "object": "customer",
         "address": null,
         "balance": 0,
-        "created": 1748448715,
+        "created": 1748450105,
         "currency": "eur",
         "default_source": null,
         "delinquent": false,
         "description": null,
         "discount": null,
         "email": "alice@example.com",
-        "invoice_prefix": "G8DDSMJQ",
+        "invoice_prefix": "S5QJYII0",
         "invoice_settings": {
           "custom_fields": null,
-          "default_payment_method": "pm_1RTmpjH5s72KxfgliYU6l3oO",
+          "default_payment_method": "pm_1RTmweH1lINcoHaahAwxvn5D",
           "footer": null,
           "rendering_options": null
         },
@@ -244,12 +244,12 @@
       "description": null,
       "discounts": [],
       "due_date": null,
-      "effective_at": 1748449685,
+      "effective_at": 1748450114,
       "ending_balance": 0,
       "footer": null,
       "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1p6SzBja1RNaTFaUGNZMjFPa3NpNUVlazhjWmRRLDEzODk5MTExNw0200XtTcDU8w?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1p6SzBja1RNaTFaUGNZMjFPa3NpNUVlazhjWmRRLDEzODk5MTExNw0200XtTcDU8w/pdf?s=ap",
+      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTmfeH1lINcoHaa/test_YWNjdF8xUlRtZmVIMWxJTmNvSGFhLF9TT2E2MmxTYUFRMTc4VFFQNllKUXdBNFdKVzZYZ1RLLDEzODk5NzgwNg0200zhjF7Iha?s=ap",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTmfeH1lINcoHaa/test_YWNjdF8xUlRtZmVIMWxJTmNvSGFhLF9TT2E2MmxTYUFRMTc4VFFQNllKUXdBNFdKVzZYZ1RLLDEzODk5NzgwNg0200zhjF7Iha/pdf?s=ap",
       "issuer": {
         "type": "self"
       },
@@ -259,7 +259,7 @@
         "object": "list",
         "data": [
           {
-            "id": "il_1RTmplH5s72Kxfgl7fgnkbAw",
+            "id": "il_1RTmwgH1lINcoHaaQnlDyUuC",
             "object": "line_item",
             "amount": 800,
             "currency": "eur",
@@ -267,7 +267,7 @@
             "discount_amounts": [],
             "discountable": true,
             "discounts": [],
-            "invoice": "in_1RTmplH5s72KxfglpEbpINC8",
+            "invoice": "in_1RTmwgH1lINcoHaaz0bEqfRi",
             "livemode": false,
             "metadata": {},
             "parent": {
@@ -278,20 +278,20 @@
                 "proration_details": {
                   "credited_items": null
                 },
-                "subscription": "sub_1RTmpkH5s72KxfglhyNnVocQ",
-                "subscription_item": "si_SOZzj4tRgNMLbV"
+                "subscription": "sub_1RTmwgH1lINcoHaagnFg7pWu",
+                "subscription_item": "si_SOa66qP9ItXcYw"
               },
               "type": "subscription_item_details"
             },
             "period": {
-              "end": 1751128084,
-              "start": 1748449684
+              "end": 1751128513,
+              "start": 1748450113
             },
             "pretax_credit_amounts": [],
             "pricing": {
               "price_details": {
-                "price": "price_1RTmhtH5s72Kxfgl0y21ZTXP",
-                "product": "prod_SOZrq7pYGENf5L"
+                "price": "price_1RTmwaH1lINcoHaaFzqwN0c8",
+                "product": "prod_SOa6QdWj0J55jl"
               },
               "type": "price_details",
               "unit_amount_decimal": "800"
@@ -302,18 +302,18 @@
         ],
         "has_more": false,
         "total_count": 1,
-        "url": "/v1/invoices/in_1RTmplH5s72KxfglpEbpINC8/lines"
+        "url": "/v1/invoices/in_1RTmwgH1lINcoHaaz0bEqfRi/lines"
       },
       "livemode": false,
       "metadata": {},
       "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0014",
+      "number": "JFB9TOTG-0002",
       "on_behalf_of": null,
       "parent": {
         "quote_details": null,
         "subscription_details": {
           "metadata": {},
-          "subscription": "sub_1RTmpkH5s72KxfglhyNnVocQ"
+          "subscription": "sub_1RTmwgH1lINcoHaagnFg7pWu"
         },
         "type": "subscription_details"
       },
@@ -322,8 +322,8 @@
         "payment_method_options": null,
         "payment_method_types": null
       },
-      "period_end": 1748449684,
-      "period_start": 1748449684,
+      "period_end": 1748450113,
+      "period_start": 1748450113,
       "post_payment_credit_notes_amount": 0,
       "pre_payment_credit_notes_amount": 0,
       "receipt_number": null,
@@ -334,9 +334,9 @@
       "statement_descriptor": null,
       "status": "paid",
       "status_transitions": {
-        "finalized_at": 1748449685,
+        "finalized_at": 1748450114,
         "marked_uncollectible_at": null,
-        "paid_at": 1748449684,
+        "paid_at": 1748450113,
         "voided_at": null
       },
       "subtotal": 800,
@@ -347,13 +347,13 @@
       "total_excluding_tax": 800,
       "total_pretax_credit_amounts": [],
       "total_taxes": [],
-      "webhooks_delivered_at": 1748449685
+      "webhooks_delivered_at": 1748450114
     },
     {
-      "id": "in_1RTmpfH5s72KxfglQzynmlyL",
+      "id": "in_1RTmwbH1lINcoHaaWUz8MY01",
       "object": "invoice",
       "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
+      "account_name": "Arthur_2",
       "account_tax_ids": null,
       "amount_due": 1200,
       "amount_overpaid": 0,
@@ -374,25 +374,25 @@
       "automatically_finalizes_at": null,
       "billing_reason": "subscription_create",
       "collection_method": "charge_automatically",
-      "created": 1748449679,
+      "created": 1748450109,
       "currency": "eur",
       "custom_fields": null,
       "customer": {
-        "id": "cus_SOZjeHCgzQFmdF",
+        "id": "cus_SOa6Ahx6rairaP",
         "object": "customer",
         "address": null,
         "balance": 0,
-        "created": 1748448715,
+        "created": 1748450104,
         "currency": "eur",
         "default_source": null,
         "delinquent": false,
         "description": null,
         "discount": null,
         "email": "jean@example.com",
-        "invoice_prefix": "NUC4E5LU",
+        "invoice_prefix": "6CMVGFKG",
         "invoice_settings": {
           "custom_fields": null,
-          "default_payment_method": "pm_1RTmpeH5s72KxfglLDI4vPpD",
+          "default_payment_method": "pm_1RTmwaH1lINcoHaarIwpYE8d",
           "footer": null,
           "rendering_options": null
         },
@@ -418,12 +418,12 @@
       "description": null,
       "discounts": [],
       "due_date": null,
-      "effective_at": 1748449679,
+      "effective_at": 1748450109,
       "ending_balance": 0,
       "footer": null,
       "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1p6N2V4TndnWGx4UDlzdThSenl1R0RaVXNEaHNwLDEzODk5MTExNw0200OzR6VwJz?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1p6N2V4TndnWGx4UDlzdThSenl1R0RaVXNEaHNwLDEzODk5MTExNw0200OzR6VwJz/pdf?s=ap",
+      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTmfeH1lINcoHaa/test_YWNjdF8xUlRtZmVIMWxJTmNvSGFhLF9TT2E2RkxkeEVDRnJ0bjk0ckhJSVFZTmJhU0t0eVNQLDEzODk5NzgwNg0200UNmZ5bvD?s=ap",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTmfeH1lINcoHaa/test_YWNjdF8xUlRtZmVIMWxJTmNvSGFhLF9TT2E2RkxkeEVDRnJ0bjk0ckhJSVFZTmJhU0t0eVNQLDEzODk5NzgwNg0200UNmZ5bvD/pdf?s=ap",
       "issuer": {
         "type": "self"
       },
@@ -433,7 +433,7 @@
         "object": "list",
         "data": [
           {
-            "id": "il_1RTmpfH5s72KxfglQHGM9KEo",
+            "id": "il_1RTmwbH1lINcoHaagxBkO7T0",
             "object": "line_item",
             "amount": 1200,
             "currency": "eur",
@@ -441,7 +441,7 @@
             "discount_amounts": [],
             "discountable": true,
             "discounts": [],
-            "invoice": "in_1RTmpfH5s72KxfglQzynmlyL",
+            "invoice": "in_1RTmwbH1lINcoHaaWUz8MY01",
             "livemode": false,
             "metadata": {},
             "parent": {
@@ -452,20 +452,20 @@
                 "proration_details": {
                   "credited_items": null
                 },
-                "subscription": "sub_1RTmpfH5s72KxfgllNhOhsZT",
-                "subscription_item": "si_SOZz2JX5bEEAnt"
+                "subscription": "sub_1RTmwbH1lINcoHaaBK5mfBYu",
+                "subscription_item": "si_SOa61VnLUKJJN8"
               },
               "type": "subscription_item_details"
             },
             "period": {
-              "end": 1751128079,
-              "start": 1748449679
+              "end": 1751128509,
+              "start": 1748450109
             },
             "pretax_credit_amounts": [],
             "pricing": {
               "price_details": {
-                "price": "price_1RTmhsH5s72KxfgleXQ4FNnU",
-                "product": "prod_SOZreiJha8BWUu"
+                "price": "price_1RTmwZH1lINcoHaaAyfIKRKI",
+                "product": "prod_SOa6bpvQORBghB"
               },
               "type": "price_details",
               "unit_amount_decimal": "1200"
@@ -476,18 +476,18 @@
         ],
         "has_more": false,
         "total_count": 1,
-        "url": "/v1/invoices/in_1RTmpfH5s72KxfglQzynmlyL/lines"
+        "url": "/v1/invoices/in_1RTmwbH1lINcoHaaWUz8MY01/lines"
       },
       "livemode": false,
       "metadata": {},
       "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0013",
+      "number": "JFB9TOTG-0001",
       "on_behalf_of": null,
       "parent": {
         "quote_details": null,
         "subscription_details": {
           "metadata": {},
-          "subscription": "sub_1RTmpfH5s72KxfgllNhOhsZT"
+          "subscription": "sub_1RTmwbH1lINcoHaaBK5mfBYu"
         },
         "type": "subscription_details"
       },
@@ -496,8 +496,8 @@
         "payment_method_options": null,
         "payment_method_types": null
       },
-      "period_end": 1748449679,
-      "period_start": 1748449679,
+      "period_end": 1748450109,
+      "period_start": 1748450109,
       "post_payment_credit_notes_amount": 0,
       "pre_payment_credit_notes_amount": 0,
       "receipt_number": null,
@@ -508,9 +508,9 @@
       "statement_descriptor": null,
       "status": "paid",
       "status_transitions": {
-        "finalized_at": 1748449679,
+        "finalized_at": 1748450109,
         "marked_uncollectible_at": null,
-        "paid_at": 1748449679,
+        "paid_at": 1748450109,
         "voided_at": null
       },
       "subtotal": 1200,
@@ -521,2026 +521,7 @@
       "total_excluding_tax": 1200,
       "total_pretax_credit_amounts": [],
       "total_taxes": [],
-      "webhooks_delivered_at": 1748449679
-    },
-    {
-      "id": "in_1RTmi3H5s72KxfglApWrcpBE",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748449207,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjHBOeDupaFi",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448716,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "marc@example.com",
-        "invoice_prefix": "SEFRB2EF",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmppH5s72KxfglqTrsVeGY",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Marc Lefevre",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "marc@example.com",
-      "customer_name": "Marc Lefevre",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748449207,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pyWFVaZHRzQWloQUtPbHF1TmkxV3NpblFISVVsLDEzODk5MTExNw0200IXHPccAu?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pyWFVaZHRzQWloQUtPbHF1TmkxV3NpblFISVVsLDEzODk5MTExNw0200IXHPccAu/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmi3H5s72Kxfglrhj88XIl",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmi3H5s72KxfglApWrcpBE",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmi2H5s72KxfglnYYoHKoa",
-                "subscription_item": "si_SOZrbdjAzvI4i9"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127606,
-              "start": 1748449206
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTmhsH5s72KxfgleXQ4FNnU",
-                "product": "prod_SOZreiJha8BWUu"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmi3H5s72KxfglApWrcpBE/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0012",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmi2H5s72KxfglnYYoHKoa"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748449206,
-      "period_start": 1748449206,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748449207,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748449206,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748449207
-    },
-    {
-      "id": "in_1RTmhzH5s72KxfglpJSCmnEA",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 800,
-      "amount_overpaid": 0,
-      "amount_paid": 800,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748449203,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjpQh6fXgvn7",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448715,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "alice@example.com",
-        "invoice_prefix": "G8DDSMJQ",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmpjH5s72KxfgliYU6l3oO",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Alice Moreau",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "alice@example.com",
-      "customer_name": "Alice Moreau",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748449203,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pyUjdDT3ZLSVZ3RVd4c1phS2Jtc29RbG41bHJILDEzODk5MTExNw0200yEKdx3Xg?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pyUjdDT3ZLSVZ3RVd4c1phS2Jtc29RbG41bHJILDEzODk5MTExNw0200yEKdx3Xg/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmhzH5s72KxfglPlgsUfPK",
-            "object": "line_item",
-            "amount": 800,
-            "currency": "eur",
-            "description": "1 × Standard Plan (at €8.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmhzH5s72KxfglpJSCmnEA",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmhyH5s72KxfglHneEYZJv",
-                "subscription_item": "si_SOZrtOQN8u5pJG"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127602,
-              "start": 1748449202
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTmhtH5s72Kxfgl0y21ZTXP",
-                "product": "prod_SOZrq7pYGENf5L"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "800"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmhzH5s72KxfglpJSCmnEA/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0011",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmhyH5s72KxfglHneEYZJv"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748449202,
-      "period_start": 1748449202,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748449203,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748449202,
-        "voided_at": null
-      },
-      "subtotal": 800,
-      "subtotal_excluding_tax": 800,
-      "test_clock": null,
-      "total": 800,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 800,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748449203
-    },
-    {
-      "id": "in_1RTmhuH5s72Kxfgl834uV30R",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748449198,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjeHCgzQFmdF",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448715,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "jean@example.com",
-        "invoice_prefix": "NUC4E5LU",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmpeH5s72KxfglLDI4vPpD",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Jean Dupont",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "jean@example.com",
-      "customer_name": "Jean Dupont",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748449198,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pySDQwQzRQRzRqdlJSOTN5bkhhbmNNSm43ZUdULDEzODk5MTExNw0200k30fqB8Z?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pySDQwQzRQRzRqdlJSOTN5bkhhbmNNSm43ZUdULDEzODk5MTExNw0200k30fqB8Z/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmhuH5s72KxfglBuUe5QGC",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmhuH5s72Kxfgl834uV30R",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmhuH5s72KxfgliD2tJysU",
-                "subscription_item": "si_SOZrpWJkEWVDte"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127598,
-              "start": 1748449198
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTmhsH5s72KxfgleXQ4FNnU",
-                "product": "prod_SOZreiJha8BWUu"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmhuH5s72Kxfgl834uV30R/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0010",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmhuH5s72KxfgliD2tJysU"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748449198,
-      "period_start": 1748449198,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748449198,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748449198,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748449198
-    },
-    {
-      "id": "in_1RTmcnH5s72KxfglLRCIXMWA",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748448881,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjHBOeDupaFi",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448716,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "marc@example.com",
-        "invoice_prefix": "SEFRB2EF",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmppH5s72KxfglqTrsVeGY",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Marc Lefevre",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "marc@example.com",
-      "customer_name": "Marc Lefevre",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748448881,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1ptT0tQc3pmZFZoUjA4VzZDOUJpNTFOSWREMVV1LDEzODk5MTExNw0200MiMNz19H?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1ptT0tQc3pmZFZoUjA4VzZDOUJpNTFOSWREMVV1LDEzODk5MTExNw0200MiMNz19H/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmcnH5s72KxfglpV9O2w0g",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmcnH5s72KxfglLRCIXMWA",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmcnH5s72KxfglCfOFtyAL",
-                "subscription_item": "si_SOZm4rVTKSkZ1X"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127281,
-              "start": 1748448881
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTmcdH5s72KxfglLS0K2ciQ",
-                "product": "prod_SOZm4Vt11x7QvM"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmcnH5s72KxfglLRCIXMWA/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0009",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmcnH5s72KxfglCfOFtyAL"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748448881,
-      "period_start": 1748448881,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748448881,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748448881,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748448881
-    },
-    {
-      "id": "in_1RTmcjH5s72KxfglPQtq0jhg",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 800,
-      "amount_overpaid": 0,
-      "amount_paid": 800,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748448877,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjpQh6fXgvn7",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448715,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "alice@example.com",
-        "invoice_prefix": "G8DDSMJQ",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmpjH5s72KxfgliYU6l3oO",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Alice Moreau",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "alice@example.com",
-      "customer_name": "Alice Moreau",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748448877,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1ptc1J5cDRXVjhJeEV5aDJVUXFOeGRoNkJsVU5rLDEzODk5MTExNw0200yOh9CZA7?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1ptc1J5cDRXVjhJeEV5aDJVUXFOeGRoNkJsVU5rLDEzODk5MTExNw0200yOh9CZA7/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmcjH5s72KxfglNozoPbcT",
-            "object": "line_item",
-            "amount": 800,
-            "currency": "eur",
-            "description": "1 × Standard Plan (at €8.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmcjH5s72KxfglPQtq0jhg",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmcjH5s72KxfgliJ7rU2kk",
-                "subscription_item": "si_SOZm53MkKt1bGD"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127277,
-              "start": 1748448877
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTmceH5s72Kxfglp8a5ipWa",
-                "product": "prod_SOZm6sjXCzOt1D"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "800"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmcjH5s72KxfglPQtq0jhg/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0008",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmcjH5s72KxfgliJ7rU2kk"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748448877,
-      "period_start": 1748448877,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748448877,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748448877,
-        "voided_at": null
-      },
-      "subtotal": 800,
-      "subtotal_excluding_tax": 800,
-      "test_clock": null,
-      "total": 800,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 800,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748448877
-    },
-    {
-      "id": "in_1RTmcgH5s72Kxfgl3o0Rof19",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748448874,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjeHCgzQFmdF",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448715,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "jean@example.com",
-        "invoice_prefix": "NUC4E5LU",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmpeH5s72KxfglLDI4vPpD",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Jean Dupont",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "jean@example.com",
-      "customer_name": "Jean Dupont",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748448874,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pta1hTRlhzZ2ZwclVJcndIQ0g0MVQzUlZHOURMLDEzODk5MTExNw02000BJokk0O?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pta1hTRlhzZ2ZwclVJcndIQ0g0MVQzUlZHOURMLDEzODk5MTExNw02000BJokk0O/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmcgH5s72KxfglIKoBOd1K",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmcgH5s72Kxfgl3o0Rof19",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmcgH5s72KxfglNLAZoR5J",
-                "subscription_item": "si_SOZmKpAYRKiB9E"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127274,
-              "start": 1748448874
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTmcdH5s72KxfglLS0K2ciQ",
-                "product": "prod_SOZm4Vt11x7QvM"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmcgH5s72Kxfgl3o0Rof19/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0007",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmcgH5s72KxfglNLAZoR5J"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748448874,
-      "period_start": 1748448874,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748448874,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748448874,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748448874
-    },
-    {
-      "id": "in_1RTmaIH5s72KxfglghhlrWbK",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748448726,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjHBOeDupaFi",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448716,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "marc@example.com",
-        "invoice_prefix": "SEFRB2EF",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmppH5s72KxfglqTrsVeGY",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Marc Lefevre",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "marc@example.com",
-      "customer_name": "Marc Lefevre",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748448726,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pqeHVQN3RmQlB1QjN6emhINFVRNjU0aVdvRFRqLDEzODk5MTExNw02005tsbNOHL?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pqeHVQN3RmQlB1QjN6emhINFVRNjU0aVdvRFRqLDEzODk5MTExNw02005tsbNOHL/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmaIH5s72Kxfgl9wNO1UBd",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmaIH5s72KxfglghhlrWbK",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmaIH5s72KxfglSbuEX2MH",
-                "subscription_item": "si_SOZjRmpIOlg8hS"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127126,
-              "start": 1748448726
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTma8H5s72KxfglEObawHJg",
-                "product": "prod_SOZjXALr3mOKjQ"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmaIH5s72KxfglghhlrWbK/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0006",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmaIH5s72KxfglSbuEX2MH"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748448726,
-      "period_start": 1748448726,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748448726,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748448726,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748448726
-    },
-    {
-      "id": "in_1RTmaEH5s72KxfglxO2rdXQc",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 800,
-      "amount_overpaid": 0,
-      "amount_paid": 800,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748448722,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjpQh6fXgvn7",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448715,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "alice@example.com",
-        "invoice_prefix": "G8DDSMJQ",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmpjH5s72KxfgliYU6l3oO",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Alice Moreau",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "alice@example.com",
-      "customer_name": "Alice Moreau",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748448722,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pqODlRTU01cEVENTh3MGFWMWZsNWxycjN5cENHLDEzODk5MTExNw0200jjkpTuuk?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pqODlRTU01cEVENTh3MGFWMWZsNWxycjN5cENHLDEzODk5MTExNw0200jjkpTuuk/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmaEH5s72KxfgllwtBIdrH",
-            "object": "line_item",
-            "amount": 800,
-            "currency": "eur",
-            "description": "1 × Standard Plan (at €8.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmaEH5s72KxfglxO2rdXQc",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmaEH5s72KxfglqDrnWats",
-                "subscription_item": "si_SOZjptJFYXQqWr"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127122,
-              "start": 1748448722
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTma9H5s72KxfglI55l7I1M",
-                "product": "prod_SOZjPlHfgwe15L"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "800"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmaEH5s72KxfglxO2rdXQc/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0005",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmaEH5s72KxfglqDrnWats"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748448722,
-      "period_start": 1748448722,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748448722,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748448722,
-        "voided_at": null
-      },
-      "subtotal": 800,
-      "subtotal_excluding_tax": 800,
-      "test_clock": null,
-      "total": 800,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 800,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748448722
-    },
-    {
-      "id": "in_1RTmaAH5s72KxfglRPbBASGF",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748448718,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOZjeHCgzQFmdF",
-        "object": "customer",
-        "address": null,
-        "balance": 0,
-        "created": 1748448715,
-        "currency": "eur",
-        "default_source": null,
-        "delinquent": false,
-        "description": null,
-        "discount": null,
-        "email": "jean@example.com",
-        "invoice_prefix": "NUC4E5LU",
-        "invoice_settings": {
-          "custom_fields": null,
-          "default_payment_method": "pm_1RTmpeH5s72KxfglLDI4vPpD",
-          "footer": null,
-          "rendering_options": null
-        },
-        "livemode": false,
-        "metadata": {},
-        "name": "Jean Dupont",
-        "phone": null,
-        "preferred_locales": [],
-        "shipping": null,
-        "tax_exempt": "none",
-        "test_clock": null
-      },
-      "customer_address": null,
-      "customer_email": "jean@example.com",
-      "customer_name": "Jean Dupont",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748448718,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pqNXN1VGt4bjhkazBDdGRxa1kzbXBnUk1ORXNhLDEzODk5MTExNw0200W2VdrqRn?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1pqNXN1VGt4bjhkazBDdGRxa1kzbXBnUk1ORXNhLDEzODk5MTExNw0200W2VdrqRn/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTmaAH5s72KxfglIZoHm6Z6",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTmaAH5s72KxfglRPbBASGF",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTmaAH5s72KxfglWMozPSt2",
-                "subscription_item": "si_SOZjseUk2eZvdY"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751127118,
-              "start": 1748448718
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTma8H5s72KxfglEObawHJg",
-                "product": "prod_SOZjXALr3mOKjQ"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTmaAH5s72KxfglRPbBASGF/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0004",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTmaAH5s72KxfglWMozPSt2"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748448718,
-      "period_start": 1748448718,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748448718,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748448718,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748448718
-    },
-    {
-      "id": "in_1RTllMH5s72KxfglPAdYc2Ep",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748445568,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOYsBQGEUnsjH3",
-        "object": "customer",
-        "deleted": true
-      },
-      "customer_address": null,
-      "customer_email": "marc@example.com",
-      "customer_name": "Marc Lefevre",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748445568,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1l0Zld3UFY4UkVsTVFxeGE2WUhnUWVySW1rbjBULDEzODk5MTExNw020064roXxUv?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1l0Zld3UFY4UkVsTVFxeGE2WUhnUWVySW1rbjBULDEzODk5MTExNw020064roXxUv/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTllMH5s72KxfglfWRkgCHb",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTllMH5s72KxfglPAdYc2Ep",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTllMH5s72Kxfgl5ykJXPHx",
-                "subscription_item": "si_SOYtIVa4Bx7YcV"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751123968,
-              "start": 1748445568
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTllDH5s72KxfglScyK7WEy",
-                "product": "prod_SOYshrk1UX1vVX"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTllMH5s72KxfglPAdYc2Ep/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0003",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTllMH5s72Kxfgl5ykJXPHx"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748445568,
-      "period_start": 1748445568,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748445568,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748445568,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748445568
-    },
-    {
-      "id": "in_1RTllJH5s72Kxfgl64lahBQd",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 800,
-      "amount_overpaid": 0,
-      "amount_paid": 800,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748445565,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOYsTfS8t7E33j",
-        "object": "customer",
-        "deleted": true
-      },
-      "customer_address": null,
-      "customer_email": "alice@example.com",
-      "customer_name": "Alice Moreau",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748445565,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1l0TDgycDAwNVQ4SHpCeWU1NXhIak1YUWRrQlFnLDEzODk5MTExNw0200PsL4UT7X?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1l0TDgycDAwNVQ4SHpCeWU1NXhIak1YUWRrQlFnLDEzODk5MTExNw0200PsL4UT7X/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTllJH5s72KxfglnIbzVt6u",
-            "object": "line_item",
-            "amount": 800,
-            "currency": "eur",
-            "description": "1 × Standard Plan (at €8.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTllJH5s72Kxfgl64lahBQd",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTllJH5s72KxfglRFYxLPP0",
-                "subscription_item": "si_SOYtPLtwsmnDbW"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751123964,
-              "start": 1748445564
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTllDH5s72KxfglvN6odEgJ",
-                "product": "prod_SOYsD8MbZZSfky"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "800"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTllJH5s72Kxfgl64lahBQd/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0002",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTllJH5s72KxfglRFYxLPP0"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748445564,
-      "period_start": 1748445564,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748445565,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748445564,
-        "voided_at": null
-      },
-      "subtotal": 800,
-      "subtotal_excluding_tax": 800,
-      "test_clock": null,
-      "total": 800,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 800,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748445565
-    },
-    {
-      "id": "in_1RTllFH5s72KxfglNSfkhwkq",
-      "object": "invoice",
-      "account_country": "FR",
-      "account_name": "Arthur-jedha sandbox",
-      "account_tax_ids": null,
-      "amount_due": 1200,
-      "amount_overpaid": 0,
-      "amount_paid": 1200,
-      "amount_remaining": 0,
-      "amount_shipping": 0,
-      "application": null,
-      "attempt_count": 1,
-      "attempted": true,
-      "auto_advance": false,
-      "automatic_tax": {
-        "disabled_reason": null,
-        "enabled": false,
-        "liability": null,
-        "provider": null,
-        "status": null
-      },
-      "automatically_finalizes_at": null,
-      "billing_reason": "subscription_create",
-      "collection_method": "charge_automatically",
-      "created": 1748445561,
-      "currency": "eur",
-      "custom_fields": null,
-      "customer": {
-        "id": "cus_SOYsGq8sY4xaLX",
-        "object": "customer",
-        "deleted": true
-      },
-      "customer_address": null,
-      "customer_email": "jean@example.com",
-      "customer_name": "Jean Dupont",
-      "customer_phone": null,
-      "customer_shipping": null,
-      "customer_tax_exempt": "none",
-      "customer_tax_ids": [],
-      "default_payment_method": null,
-      "default_source": null,
-      "default_tax_rates": [],
-      "description": null,
-      "discounts": [],
-      "due_date": null,
-      "effective_at": 1748445561,
-      "ending_balance": 0,
-      "footer": null,
-      "from_invoice": null,
-      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1l0c25wSGpza1BUa2wyMjZQUkROM0F1cTlGYzBnLDEzODk5MTExNw0200k53HrUeq?s=ap",
-      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1RTPZJH5s72Kxfgl/test_YWNjdF8xUlRQWkpINXM3Mkt4ZmdsLF9TT1l0c25wSGpza1BUa2wyMjZQUkROM0F1cTlGYzBnLDEzODk5MTExNw0200k53HrUeq/pdf?s=ap",
-      "issuer": {
-        "type": "self"
-      },
-      "last_finalization_error": null,
-      "latest_revision": null,
-      "lines": {
-        "object": "list",
-        "data": [
-          {
-            "id": "il_1RTllFH5s72Kxfgl7Z2iJk4B",
-            "object": "line_item",
-            "amount": 1200,
-            "currency": "eur",
-            "description": "1 × Premium Plan (at €12.00 / month)",
-            "discount_amounts": [],
-            "discountable": true,
-            "discounts": [],
-            "invoice": "in_1RTllFH5s72KxfglNSfkhwkq",
-            "livemode": false,
-            "metadata": {},
-            "parent": {
-              "invoice_item_details": null,
-              "subscription_item_details": {
-                "invoice_item": null,
-                "proration": false,
-                "proration_details": {
-                  "credited_items": null
-                },
-                "subscription": "sub_1RTllEH5s72KxfglSwfBFqi4",
-                "subscription_item": "si_SOYtMN6GqmyG4d"
-              },
-              "type": "subscription_item_details"
-            },
-            "period": {
-              "end": 1751123960,
-              "start": 1748445560
-            },
-            "pretax_credit_amounts": [],
-            "pricing": {
-              "price_details": {
-                "price": "price_1RTllDH5s72KxfglScyK7WEy",
-                "product": "prod_SOYshrk1UX1vVX"
-              },
-              "type": "price_details",
-              "unit_amount_decimal": "1200"
-            },
-            "quantity": 1,
-            "taxes": []
-          }
-        ],
-        "has_more": false,
-        "total_count": 1,
-        "url": "/v1/invoices/in_1RTllFH5s72KxfglNSfkhwkq/lines"
-      },
-      "livemode": false,
-      "metadata": {},
-      "next_payment_attempt": null,
-      "number": "EGQ9ACLJ-0001",
-      "on_behalf_of": null,
-      "parent": {
-        "quote_details": null,
-        "subscription_details": {
-          "metadata": {},
-          "subscription": "sub_1RTllEH5s72KxfglSwfBFqi4"
-        },
-        "type": "subscription_details"
-      },
-      "payment_settings": {
-        "default_mandate": null,
-        "payment_method_options": null,
-        "payment_method_types": null
-      },
-      "period_end": 1748445560,
-      "period_start": 1748445560,
-      "post_payment_credit_notes_amount": 0,
-      "pre_payment_credit_notes_amount": 0,
-      "receipt_number": null,
-      "rendering": null,
-      "shipping_cost": null,
-      "shipping_details": null,
-      "starting_balance": 0,
-      "statement_descriptor": null,
-      "status": "paid",
-      "status_transitions": {
-        "finalized_at": 1748445561,
-        "marked_uncollectible_at": null,
-        "paid_at": 1748445560,
-        "voided_at": null
-      },
-      "subtotal": 1200,
-      "subtotal_excluding_tax": 1200,
-      "test_clock": null,
-      "total": 1200,
-      "total_discount_amounts": [],
-      "total_excluding_tax": 1200,
-      "total_pretax_credit_amounts": [],
-      "total_taxes": [],
-      "webhooks_delivered_at": 1748445561
+      "webhooks_delivered_at": 1748450109
     }
   ],
   "has_more": false,

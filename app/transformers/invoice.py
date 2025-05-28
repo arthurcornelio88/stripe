@@ -2,9 +2,19 @@ from app.models.invoice import Invoice
 from datetime import datetime
 
 def stripe_invoice_to_model(data: dict) -> Invoice:
+    """
+    Convert Stripe invoice JSON data into a SQLAlchemy Invoice model.
+
+    Ensures customer_id is cast from dict if needed and supports optional fields.
+    """
+
+    # Normalize customer_id (can be a string or a full dict)
+    customer = data.get("customer")
+    customer_id = customer["id"] if isinstance(customer, dict) else customer
+
     return Invoice(
         id=data["id"],
-        customer_id=data.get("customer"),
+        customer_id=customer_id,
         status=data.get("status"),
         billing_reason=data.get("billing_reason"),
         collection_method=data.get("collection_method"),
