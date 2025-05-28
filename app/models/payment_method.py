@@ -21,3 +21,8 @@ class PaymentMethod(Base):
     # Optional: embed detailed method data
     us_bank_account = Column(JSONB, nullable=True)
     card = Column(JSONB, nullable=True)
+
+    card_brand = Column(String, nullable=True)    # visa, mastercard, etc.
+    card_funding = Column(String, nullable=True)  # credit, debit
+    card_last4 = Column(String, nullable=True)    # pour audit/debug
+

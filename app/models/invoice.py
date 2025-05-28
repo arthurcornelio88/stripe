@@ -46,3 +46,7 @@ class Invoice(Base):
     payment_settings = Column(JSONB, nullable=True)
     shipping_cost = Column(JSONB, nullable=True)
     status_transitions = Column(JSONB, nullable=True)
+
+    status_transitions_at = Column(DateTime(timezone=True), nullable=True)  # date du changement de statut
+    default_payment_method_id = Column(String, nullable=True)               # via customer.invoice_settings
+

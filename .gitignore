@@ -15,3 +15,6 @@ old/*
 #Log files
 *.log
 logs/
+
+# Data
+imported_stripe_data/*

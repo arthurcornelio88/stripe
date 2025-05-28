@@ -44,3 +44,7 @@ class Charge(Base):
 
     invoice_id = Column(String, ForeignKey("invoices.id"), nullable=True)
 
+    card_brand = Column(String, nullable=True)     # dans payment_method_details.card.brand
+    card_funding = Column(String, nullable=True)
+
+

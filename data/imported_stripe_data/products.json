@@ -1,0 +1,51 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "prod_SOYsD8MbZZSfky",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1748445559,
+      "default_price": null,
+      "description": "Access to standard features",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "Standard Plan",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1748445559,
+      "url": null
+    },
+    {
+      "id": "prod_SOYshrk1UX1vVX",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1748445558,
+      "default_price": null,
+      "description": "Access to premium features",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "Premium Plan",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1748445558,
+      "url": null
+    }
+  ],
+  "has_more": false,
+  "url": "/v1/products"
+}

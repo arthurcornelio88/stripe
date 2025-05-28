@@ -40,3 +40,8 @@ class PaymentIntent(Base):
     next_action = Column(JSONB, nullable=True)
     statement_descriptor = Column(String, nullable=True)
     statement_descriptor_suffix = Column(String, nullable=True)
+
+    card_brand = Column(String, nullable=True)
+    card_funding = Column(String, nullable=True)
+    setup_future_usage = Column(String, nullable=True)
+

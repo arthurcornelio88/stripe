@@ -1,0 +1,24 @@
+{
+  "customers": [
+    {"name": "Jean Dupont", "email": "jean@example.com"},
+    {"name": "Alice Moreau", "email": "alice@example.com"},
+    {"name": "Marc Lefevre", "email": "marc@example.com"}
+  ],
+  "products": [
+    {
+      "name": "Premium Plan",
+      "description": "Access to premium features",
+      "prices": [{"amount": 1200, "currency": "eur", "interval": "month"}]
+    },
+    {
+      "name": "Standard Plan",
+      "description": "Access to standard features",
+      "prices": [{"amount": 800, "currency": "eur", "interval": "month"}]
+    }
+  ],
+  "subscriptions": [
+    {"customer_email": "jean@example.com", "product_name": "Premium Plan"},
+    {"customer_email": "alice@example.com", "product_name": "Standard Plan"},
+    {"customer_email": "marc@example.com", "product_name": "Premium Plan"}
+  ]
+}

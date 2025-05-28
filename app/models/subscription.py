@@ -34,3 +34,7 @@ class Subscription(Base):
     trial_settings = Column(JSONB, nullable=True)
 
     latest_invoice = Column(String, nullable=True)
+
+    subscription_item_id = Column(String, nullable=True)  # extrait de items[0].id
+    plan_interval = Column(String, nullable=True)          # extrait de price.recurring.interval
+

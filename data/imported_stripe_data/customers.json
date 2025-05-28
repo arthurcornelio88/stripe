@@ -1,0 +1,297 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "cus_SOYsBQGEUnsjH3",
+      "object": "customer",
+      "address": null,
+      "balance": 0,
+      "created": 1748445558,
+      "currency": "eur",
+      "default_source": null,
+      "delinquent": false,
+      "description": null,
+      "discount": null,
+      "email": "marc@example.com",
+      "invoice_prefix": "ZE6DMQ9A",
+      "invoice_settings": {
+        "custom_fields": null,
+        "default_payment_method": {
+          "id": "pm_1RTllLH5s72KxfglwP1hZ0ev",
+          "object": "payment_method",
+          "allow_redisplay": "unspecified",
+          "billing_details": {
+            "address": {
+              "city": null,
+              "country": null,
+              "line1": null,
+              "line2": null,
+              "postal_code": null,
+              "state": null
+            },
+            "email": null,
+            "name": null,
+            "phone": null,
+            "tax_id": null
+          },
+          "card": {
+            "brand": "visa",
+            "checks": {
+              "address_line1_check": null,
+              "address_postal_code_check": null,
+              "cvc_check": "pass"
+            },
+            "country": "US",
+            "display_brand": "visa",
+            "exp_month": 5,
+            "exp_year": 2026,
+            "fingerprint": "b6uXNC8aOCucovIn",
+            "funding": "credit",
+            "generated_from": null,
+            "last4": "4242",
+            "networks": {
+              "available": [
+                "visa"
+              ],
+              "preferred": null
+            },
+            "regulated_status": "unregulated",
+            "three_d_secure_usage": {
+              "supported": true
+            },
+            "wallet": null
+          },
+          "created": 1748445567,
+          "customer": "cus_SOYsBQGEUnsjH3",
+          "livemode": false,
+          "metadata": {},
+          "type": "card"
+        },
+        "footer": null,
+        "rendering_options": null
+      },
+      "livemode": false,
+      "metadata": {},
+      "name": "Marc Lefevre",
+      "phone": null,
+      "preferred_locales": [],
+      "shipping": null,
+      "tax_exempt": "none",
+      "test_clock": null
+    },
+    {
+      "id": "cus_SOYsTfS8t7E33j",
+      "object": "customer",
+      "address": null,
+      "balance": 0,
+      "created": 1748445558,
+      "currency": "eur",
+      "default_source": null,
+      "delinquent": false,
+      "description": null,
+      "discount": null,
+      "email": "alice@example.com",
+      "invoice_prefix": "HHTCFCL3",
+      "invoice_settings": {
+        "custom_fields": null,
+        "default_payment_method": {
+          "id": "pm_1RTllHH5s72KxfglWHoxqOS6",
+          "object": "payment_method",
+          "allow_redisplay": "unspecified",
+          "billing_details": {
+            "address": {
+              "city": null,
+              "country": null,
+              "line1": null,
+              "line2": null,
+              "postal_code": null,
+              "state": null
+            },
+            "email": null,
+            "name": null,
+            "phone": null,
+            "tax_id": null
+          },
+          "card": {
+            "brand": "visa",
+            "checks": {
+              "address_line1_check": null,
+              "address_postal_code_check": null,
+              "cvc_check": "pass"
+            },
+            "country": "US",
+            "display_brand": "visa",
+            "exp_month": 5,
+            "exp_year": 2026,
+            "fingerprint": "b6uXNC8aOCucovIn",
+            "funding": "credit",
+            "generated_from": null,
+            "last4": "4242",
+            "networks": {
+              "available": [
+                "visa"
+              ],
+              "preferred": null
+            },
+            "regulated_status": "unregulated",
+            "three_d_secure_usage": {
+              "supported": true
+            },
+            "wallet": null
+          },
+          "created": 1748445563,
+          "customer": "cus_SOYsTfS8t7E33j",
+          "livemode": false,
+          "metadata": {},
+          "type": "card"
+        },
+        "footer": null,
+        "rendering_options": null
+      },
+      "livemode": false,
+      "metadata": {},
+      "name": "Alice Moreau",
+      "phone": null,
+      "preferred_locales": [],
+      "shipping": null,
+      "tax_exempt": "none",
+      "test_clock": null
+    },
+    {
+      "id": "cus_SOYsGq8sY4xaLX",
+      "object": "customer",
+      "address": null,
+      "balance": 0,
+      "created": 1748445557,
+      "currency": "eur",
+      "default_source": null,
+      "delinquent": false,
+      "description": null,
+      "discount": null,
+      "email": "jean@example.com",
+      "invoice_prefix": "NDPOO4C8",
+      "invoice_settings": {
+        "custom_fields": null,
+        "default_payment_method": {
+          "id": "pm_1RTllDH5s72KxfglDJdIzt9H",
+          "object": "payment_method",
+          "allow_redisplay": "unspecified",
+          "billing_details": {
+            "address": {
+              "city": null,
+              "country": null,
+              "line1": null,
+              "line2": null,
+              "postal_code": null,
+              "state": null
+            },
+            "email": null,
+            "name": null,
+            "phone": null,
+            "tax_id": null
+          },
+          "card": {
+            "brand": "visa",
+            "checks": {
+              "address_line1_check": null,
+              "address_postal_code_check": null,
+              "cvc_check": "pass"
+            },
+            "country": "US",
+            "display_brand": "visa",
+            "exp_month": 5,
+            "exp_year": 2026,
+            "fingerprint": "b6uXNC8aOCucovIn",
+            "funding": "credit",
+            "generated_from": null,
+            "last4": "4242",
+            "networks": {
+              "available": [
+                "visa"
+              ],
+              "preferred": null
+            },
+            "regulated_status": "unregulated",
+            "three_d_secure_usage": {
+              "supported": true
+            },
+            "wallet": null
+          },
+          "created": 1748445559,
+          "customer": "cus_SOYsGq8sY4xaLX",
+          "livemode": false,
+          "metadata": {},
+          "type": "card"
+        },
+        "footer": null,
+        "rendering_options": null
+      },
+      "livemode": false,
+      "metadata": {},
+      "name": "Jean Dupont",
+      "phone": null,
+      "preferred_locales": [],
+      "shipping": null,
+      "tax_exempt": "none",
+      "test_clock": null
+    },
+    {
+      "id": "cus_SOYVFx11QcQS8Z",
+      "object": "customer",
+      "address": null,
+      "balance": 0,
+      "created": 1748444142,
+      "currency": null,
+      "default_source": null,
+      "delinquent": false,
+      "description": null,
+      "discount": null,
+      "email": "jean@example.com",
+      "invoice_prefix": "FGPKMBVC",
+      "invoice_settings": {
+        "custom_fields": null,
+        "default_payment_method": null,
+        "footer": null,
+        "rendering_options": null
+      },
+      "livemode": false,
+      "metadata": {},
+      "name": "Jean Dupont",
+      "phone": null,
+      "preferred_locales": [],
+      "shipping": null,
+      "tax_exempt": "none",
+      "test_clock": null
+    },
+    {
+      "id": "cus_SOYUrCJVsBRfLh",
+      "object": "customer",
+      "address": null,
+      "balance": 0,
+      "created": 1748444078,
+      "currency": null,
+      "default_source": null,
+      "delinquent": false,
+      "description": null,
+      "discount": null,
+      "email": "jean@example.com",
+      "invoice_prefix": "CTMOOCKZ",
+      "invoice_settings": {
+        "custom_fields": null,
+        "default_payment_method": null,
+        "footer": null,
+        "rendering_options": null
+      },
+      "livemode": false,
+      "metadata": {},
+      "name": "Jean Dupont",
+      "phone": null,
+      "preferred_locales": [],
+      "shipping": null,
+      "tax_exempt": "none",
+      "test_clock": null
+    }
+  ],
+  "has_more": false,
+  "url": "/v1/customers"
+}

@@ -28,4 +28,7 @@ class Customer(Base):
 
     tax_exempt = Column(String)  # e.g. "none", "exempt", "reverse"
 
+    default_payment_method_id = Column(String, nullable=True)  # customer.invoice_settings.default_payment_method
+
+
     # Optional: test_clock = Column(String)  # ID if used

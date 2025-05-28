@@ -1,0 +1,8 @@
+{
+  "error": {
+    "message": "This property cannot be expanded (data.default_payment_method).",
+    "request_log_url": "https://dashboard.stripe.com/test/logs/req_uMSCnamgjBwa2x?t=1748445821",
+    "type": "invalid_request_error"
+  }
+}
+

@@ -31,3 +31,6 @@ class Price(Base):
     tiers_mode = Column(String)
     custom_unit_amount = Column(JSONB, nullable=True)
     transform_quantity = Column(JSONB, nullable=True)
+
+    product_name = Column(String, nullable=True)  # pour jointure rapide analytique
+    interval = Column(String, nullable=True)      # price.recurring["interval"]
