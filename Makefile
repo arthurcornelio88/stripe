@@ -1,21 +1,24 @@
+# ========= GLOBAL CONFIG =========
+
 export PYTHONPATH := $(shell pwd)
 ENV ?= DEV
 
 .DEFAULT_GOAL := help
 
-## === ENV SETUP ===
+# ========= ENV SETUP ==========
 
-dev-env: ## Prépare l’environnement de développement
+dev-env: ## Charge l'environnement depuis le fichier .env.<ENV>
 	chmod +x scripts/dev_env.sh
 	./scripts/dev_env.sh
 
-## === INIT COMMANDS ===
+# ========= INIT COMMANDS ==========
 
 init-all: ## Initialise DB + migrations
 	$(MAKE) init-db
 	$(MAKE) init-migration
 
-init-db: ## Démarre PostgreSQL et crée les BDD nécessaires
+init-db: ## Initialise PostgreSQL local (DEV) ou distant (PROD)
+ifeq ($(ENV),DEV)
 	docker-compose up -d
 	@echo "⏳ Waiting for Postgres..."
 	@sleep 3
@@ -23,14 +26,15 @@ init-db: ## Démarre PostgreSQL et crée les BDD nécessaires
 	@echo "✅ Postgres is ready!"
 	@echo "🧱 Creating test database if needed"
 	@docker exec -it stripe_db psql -U stripe_user -d postgres -c "CREATE DATABASE stripe_test;" || echo "✔️ stripe_test already exists."
-	@echo "🧱 Initializing tables in both databases"
+else
+	@echo "✅ ENV=PROD → skipping local DB startup"
+endif
+	@echo "🧱 Initializing tables"
 	@python scripts/init_db.py
-	@docker exec -it stripe_db psql -U stripe_user -d stripe_db -c "\dt"
-	@docker exec -it stripe_db psql -U stripe_user -d stripe_test -c "\dt"
-	@echo "✅ Tables verified in both databases"
 
 init-migration: ## Crée la migration initiale si aucune n'existe
 	$(MAKE) dev-env
+ifeq ($(ENV),DEV)
 	@if [ ! -d alembic/versions ] || [ -z "$$(ls -A alembic/versions)" ]; then \
 		echo "🧱 No migration found. Creating initial migration..."; \
 		mkdir -p alembic/versions; \
@@ -39,8 +43,11 @@ init-migration: ## Crée la migration initiale si aucune n'existe
 	else \
 		echo "✅ Migrations already exist. Skipping init-migration."; \
 	fi
+else
+	@echo "ℹ️ Skipping migration init in ENV=$(ENV)"
+endif
 
-## === MIGRATION COMMANDS ===
+# ========= MIGRATION COMMANDS ==========
 
 migrate: ## Crée et applique une migration avec message `m=...`
 	$(MAKE) dev-env
@@ -51,22 +58,27 @@ upgrade-db: ## Applique toutes les migrations
 	$(MAKE) dev-env
 	alembic upgrade head
 
-## === RESET COMMANDS ===
+# ========= RESET COMMANDS ==========
 
 reset-all: ## Réinitialise complètement la DB + migrations
 	$(MAKE) reset-db
 	$(MAKE) reset-migration
 
-reset-db: ## Supprime les volumes et recrée les bases
+reset-db: ## Supprime les volumes et recrée les bases (DEV uniquement)
+ifeq ($(ENV),DEV)
 	docker-compose down -v
 	$(MAKE) init-db
+else
+	@echo "❌ Refus de reset en ENV=PROD"
+	@exit 1
+endif
 
 reset-migration: ## Supprime et régénère les migrations
 	rm -rf alembic/versions/*
 	mkdir -p alembic/versions
 	$(MAKE) migrate m="reset migration"
 
-## === STRIPE WORKFLOW ===
+# ========= STRIPE WORKFLOW ==========
 
 populate: ## ⚠️ Remplit Stripe (seulement en ENV=DEV)
 ifeq ($(ENV),DEV)
@@ -77,7 +89,7 @@ else
 	@exit 1
 endif
 
-populate-force: ## Forcer le remplissage Stripe (ENV=DEV uniquement)
+populate-force: ## Forcer le remplissage Stripe (DEV uniquement)
 ifeq ($(ENV),DEV)
 	@echo "🚀 Force-populating Stripe sandbox with test fixtures..."
 	@python scripts/populate.py --force --fixture fixtures/stripe_batch_fixture.json
@@ -120,9 +132,14 @@ clean: ## Supprime les données locales importées
 	@echo "🧹 Nettoyage des données locales..."
 	@rm -rf data/imported_stripe_data/*
 
-all: init-all populate-all ## Initialise et peuple complètement le projet (DEV)
+all: init-all ## Initialise le projet. Appelle populate-all en DEV uniquement
+ifeq ($(ENV),DEV)
+	@$(MAKE) populate-all
+else
+	@echo "✅ ENV=PROD → skipping populate-all"
+endif
 
-## === HELP COMMAND ===
+# ========= HELP ==========
 
 help: ## Affiche cette aide
 	@echo "🔧 Utilisation : make <commande> [ENV=DEV|PROD]"

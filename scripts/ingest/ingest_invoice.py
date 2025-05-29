@@ -6,8 +6,9 @@ from app.models.invoice import Invoice
 from app.transformers.invoice import stripe_invoice_to_model
 from app.utils.stripe_helpers import ensure_customer_exists
 from sqlalchemy.orm import Session
+from utils import load_project_env
 
-load_dotenv()
+ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")
 
 def validate_json_type(data, expected_type: str):

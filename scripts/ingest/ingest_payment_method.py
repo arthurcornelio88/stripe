@@ -5,8 +5,9 @@ from app.db.session import SessionLocal
 from app.models.payment_method import PaymentMethod
 from app.transformers.payment_method import stripe_payment_method_to_model
 from sqlalchemy.orm import Session
+from utils import load_project_env
 
-load_dotenv()
+ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")
 
 def validate_json_type(data, expected_type: str):

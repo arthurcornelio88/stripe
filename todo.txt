@@ -1,7 +1,8 @@
 1) schema_er.png ne ressemble pas les vrais schemas, faute de place. j`ai pris les vrais schemas de l`api stripe
 2) readme
 - write ENV !
-3) verifier connexion a test_db
+3) verifier connexion a test_db 
+4) integrer test dans la cicd, meme de make oltp
 
 Zip command
 

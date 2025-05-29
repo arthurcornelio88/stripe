@@ -9,8 +9,13 @@ wheels/
 
 # Virtual environments
 .venv
-.env
 
+Environment variables
+.env.dev
+.env.prod
+!.env.example
+
+# Old files
 old/*
 
 #Log files

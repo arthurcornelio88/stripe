@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 from app.db.base import Base
 from app.models import (
     customer,
@@ -15,7 +16,20 @@ from app.models import (
     subscription
 )
 
-# --- Configuration via .env ---
+# ============ ENVIRONMENT SETUP ============
+
+ENV = os.getenv("ENV", "DEV").upper()
+env_file = f".env.{ENV.lower()}"
+
+if os.path.exists(env_file):
+    load_dotenv(dotenv_path=env_file)
+    print(f"🔧 Loaded environment from {env_file}")
+else:
+    print(f"❌ Environment file '{env_file}' not found.")
+    exit(1)
+
+# ============ DATABASE CONFIG ============
+
 POSTGRES_USER = os.getenv("POSTGRES_USER")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
@@ -24,11 +38,11 @@ POSTGRES_DB = os.getenv("POSTGRES_DB")
 
 DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
-# --- SQLAlchemy session ---
+# ============ SQLAlchemy ============
+
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# --- Liste des modèles à dumper ---
 MODELS = [
     customer.Customer,
     invoice.Invoice,
@@ -40,14 +54,14 @@ MODELS = [
     subscription.Subscription
 ]
 
-# --- Sérialisation simple ---
+# ============ DUMP LOGIC ============
+
 def serialize(model_obj):
     return {
         c.name: getattr(model_obj, c.name)
         for c in model_obj.__table__.columns
     }
 
-# --- Dump JSON avec horodatage ---
 def dump_to_json():
     session = SessionLocal()
     dump_data = {}
@@ -59,11 +73,10 @@ def dump_to_json():
     finally:
         session.close()
 
-    # Crée le dossier s'il n'existe pas
+    # Output folder
     dump_dir = os.path.join("data", "db_dump")
     os.makedirs(dump_dir, exist_ok=True)
 
-    # Timestamp dans le nom du fichier
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     filename = os.path.join(dump_dir, f"db_dump_{timestamp}.json")
 
@@ -72,5 +85,8 @@ def dump_to_json():
 
     print(f"✅ Dump saved to: {filename}")
 
+# ============ RUN ============
+
 if __name__ == "__main__":
+    print(f"🚀 Running database dump in ENV={ENV}")
     dump_to_json()
