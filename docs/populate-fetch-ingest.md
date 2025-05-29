@@ -1,155 +1,197 @@
-# End-to-End Data Pipeline: Populate → Fetch → Ingest → Check
+# 🏠 Stripe OLTP Data Pipeline
 
-> Your complete walkthrough for setting up and verifying the OLTP layer using real Stripe API calls and custom test data.
-
----
-
-## 🛠️ What This Flow Does
-
-This workflow is designed to **populate the Stripe sandbox** with controlled test data, **fetch it** into structured JSON files, **ingest it** into your local PostgreSQL database using SQLAlchemy models, and finally **verify** that all data has been correctly populated.
-
-We skip the official Stripe CLI fixtures and instead use our own `scripts/populate.py` for full transparency and reusability.
+> End-to-end system to populate, fetch, ingest and verify transactional Stripe data in a controlled PostgreSQL environment. This README documents **everything from scripts to schema**, giving full reproducibility, safety, and insight into your OLTP foundation.
 
 ---
 
-## 🧪 Step 1: Populate the Stripe Sandbox
+## 🌐 Environment-Safe Design
 
-We use a JSON fixture (`fixtures/stripe_batch_fixture.json`) to create:
+This pipeline is explicitly **environment-aware**. By default, everything is run in:
 
-* Customers
-* Products with metadata
-* Prices (e.g. EUR/month)
-* Subscriptions (with default payment methods)
-
-### 🔁 Smart Behavior:
-
-* Detects and skips existing customers/products/prices
-* Optionally deletes and recreates existing subscriptions (`--force` flag)
+* `ENV=DEV`: full feature access
+* `ENV=PROD`: blocks destructive/populating commands
 
 ```bash
-# Run once to populate fresh data
+make populate                # allowed in DEV
+make populate ENV=PROD       # ❌ blocked
+```
+
+---
+
+## 📂 Step 1: Create Databases & Tables
+
+### `make init-db` runs:
+
+* Docker Compose boot
+* `init_db.py` to connect via psycopg2 and create `stripe_db` and `stripe_test` if missing
+* Table creation via `Base.metadata.create_all`
+
+```python
+create_db_if_not_exists("stripe_test", admin_url)
+Base.metadata.create_all(engine)  # applied to both DBs
+```
+
+The **test database** (`stripe_test`) ensures every migration & ingestion script can be verified without mutating the primary.
+
+📸 *Result after boot:*
+
+![make 1](docs/img/make1.png)
+![make 1.2](attachment\:file-LmPAdmshjtTcihp2K8q2rX)
+
+---
+
+## 🔖 Step 2: Migrations (Alembic)
+
+```bash
+make init-migration
+```
+
+Migrations are either:
+
+* Created via `alembic revision --autogenerate`
+* Skipped if already present
+
+Output shown:
+
+![make 2](attachment\:file-KEHfhs9rp46GkTn8ajZ8FB)
+
+---
+
+## 🚀 Step 3: Populate Stripe Sandbox
+
+```bash
 make populate
-
-# Or force-delete subscriptions and recreate from scratch
-make populate-force
+make populate-force  # resets subscriptions
 ```
 
-📂 Fixture format example:
+### Highlights from `populate.py`:
 
-```json
-{
-  "customers": [{"email": "alice@example.com", "name": "Alice"}],
-  "products": [{
-    "name": "Premium Plan",
-    "description": "Monthly access",
-    "prices": [{"amount": 1200, "currency": "eur", "interval": "month"}]
-  }],
-  "subscriptions": [{"customer_email": "alice@example.com", "product_name": "Premium Plan"}]
-}
+* ✅ **Idempotent**: skips duplicates using `stripe.Customer.list(email=...)`
+* ⚖️ Custom metadata tagging for products
+* ⚖️ Price matching by value+interval+currency
+* ⚡ Automatic subscription creation with tokenized card (`tok_visa`)
+
+```python
+if subscription_exists(): continue
+stripe.PaymentMethod.attach(...)
+stripe.Customer.modify(...)
+stripe.Subscription.create(...)
 ```
+
+![make 3](attachment\:file-G7fbzfoDxLgwa1PAjm3rMy)
 
 ---
 
-## 📥 Step 2: Fetch Stripe Objects (JSON Dumps)
-
-Two scripts handle the fetching:
-
-1. **`fetch_stripe_data.sh`** (for core objects)
-2. **`fetch_payment_methods.sh`** (per-customer enrichment)
+## 📥 Step 4: Fetch JSON from Stripe
 
 ```bash
-# Downloads JSON data from Stripe's API into local files
 make fetch
 ```
 
-### 🔄 Resources Fetched:
+### Scripts used:
 
-* customers.json
-* products.json
-* prices.json
-* subscriptions.json
-* invoices.json
-* payment\_intents.json
-* charges.json
-* payment\_methods.json *(merged from per-customer requests)*
+* `fetch_stripe_data.sh`
+* `fetch_payment_methods.sh`
 
-> Output directory: `data/imported_stripe_data/`
+These use `curl` to:
 
-🖼️ *\[Insert screenshots of JSON structure here]*
+* Expand nested objects (e.g., customer.invoice\_settings)
+* Merge all customer-linked `payment_methods` into a unified file
+
+Structure saved in `data/imported_stripe_data/`
+
+*No screenshot needed here—just JSON dump.*
 
 ---
 
-## 📦 Step 3: Ingest JSON to PostgreSQL
-
-Each ingestion script handles one table (e.g. `ingest_customer.py`) and uses Pydantic validators + SQLAlchemy models to map raw Stripe objects into relational records.
-
-We support two sources:
-
-* `--source=api` (direct from Stripe)
-* `--source=json` with `--file=...`
-
-> All scripts are orchestrated by `scripts/ingest/ingest_all.py` and respect dependency order.
+## 🧰 Step 5: Ingest to PostgreSQL
 
 ```bash
-# Ingest all objects in dependency order from local JSON files
 make ingest-all SOURCE=json JSON_DIR=data/imported_stripe_data
 ```
 
-### ⚠️ Dependency-Safe Order
+### For each table:
 
-1. customer
-2. payment\_method
-3. products
-4. price
-5. subscription
-6. invoice
-7. payment\_intent
-8. charge
+* Validates JSON type & structure
+* Applies custom Pydantic transformer (`stripe_customer_to_model()`)
+* Adds new entries only (idempotent)
 
-🧩 Mapped using `TABLE_FILE_MAP` for script → file resolution.
+```python
+if obj["id"] not in existing_ids: db.add(...)
+```
 
-🖼️ *\[Insert screenshots of ingestion logs + SQL output]*
+You can ingest:
+
+* **All**: via `ingest_all.py`
+* **One table**: `make ingest-customer SOURCE=json FILE=...`
+
+![make 5](attachment\:file-2WkGX27JqadcB2LUdq5Xag)
+![make 5.1](attachment\:file-LKRrRnGATJKbKmowrkCNHp)
 
 ---
 
-## ✅ Step 4: Verify Data Integrity
-
-Final check: compare counts between JSON files and live PostgreSQL tables.
+## 🔎 Step 6: Verify JSON vs DB Integrity
 
 ```bash
 make check-db
 ```
 
-✔️ For each table:
+Runs `check_db_integrity.py`, which:
 
-* Count rows in `data/*.json`
-* Count rows in database
-* ✅ Matched or ❌ Missing
+* Loads every JSON file
+* Counts records by table
+* Compares to DB via SQLAlchemy connection
 
-🖼️ *\[Insert screenshot of full table check summary]*
+```python
+SELECT COUNT(*) FROM {table}
+```
 
----
+Output:
 
-## 💡 Why This Flow?
-
-* No reliance on Stripe CLI fixtures
-* Fully scriptable and reproducible
-* Easy to debug intermediate steps
-* Works with any sandbox or test key
-
-We’re now ready to move on to **OLAP modeling**, confident that the OLTP layer is stable and ACID-safe.
-
-> 🧭 Tip: Everything above is also runnable via `make populate-all`
->
-> ```bash
-> make init-all && make populate-all
-> ```
+![make 6](attachment\:file-Dt5kCuxEaPbVxeWshcFsr3)
 
 ---
 
-## 📎 Related Docs
+## 🧪 Schema Coverage (Customer)
 
-* [`create-db-and-migrations.md`](create-db-and-migrations.md)
-* [`schemas/schema_er.mmd`](../schemas/schema_er.mmd)
+### Model: `app/models/customer.py`
+
+```python
+class Customer(Base):
+    ...
+    deleted = Column(Boolean, default=False)  # supports stripe deletion
+    address = Column(JSONB)
+    test_clock = Column(String)
+```
+
+### Transformer: `stripe_customer_to_model()`
+
+```python
+default_payment_method_id = (
+    data.get("invoice_settings", {}).get("default_payment_method", {}).get("id")
+)
+```
 
 ---
+
+## 🎯 Summary: What You Get
+
+| Layer    | Tool       | Behavior                        |
+| -------- | ---------- | ------------------------------- |
+| Infra    | Docker     | Compose PostgreSQL + volumes    |
+| Schema   | Alembic    | Migrations auto-managed         |
+| Populate | Stripe SDK | Custom idempotent API calls     |
+| Fetch    | cURL/bash  | Expanded + batched object pulls |
+| Ingest   | SQLAlchemy | Per-table validators + mappers  |
+| Verify   | Python     | Row-count diff checker          |
+
+---
+
+## 💼 Appendix: Script Index (`scripts` folder)
+
+* `init_db.py`: DB creation (admin connection)
+* `populate.py`: Main population logic
+* `fetch_stripe_data.sh`: Core resource fetching
+* `fetch_payment_methods.sh`: Per-customer methods
+* `ingest_all.py`: Ordered ingestion orchestrator
+* `check_db_integrity.py`: Final sanity check

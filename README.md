@@ -57,14 +57,6 @@ Each table is designed with primary and foreign keys to support **ACID-compliant
 
 ---
 
-Great idea — completing that step-by-step block brings the entire OLTP setup full circle. Here's the **updated and complete** setup guide section, which fits perfectly into your existing README:
-
----
-
-Here's how you can present the two pathways — **simple all-in-one** and **granular control** — in your README, keeping the tone and layout consistent with the rest of the guide:
-
----
-
 ### 📦 Project Setup – OLTP DB
 
 Before running any data logic or ingestion, you must prepare the **OLTP database schema and migration system**.
@@ -86,9 +78,12 @@ uv sync
 # 3. Activate the virtual environment
 source .venv/bin/activate
 
-# 4. Do everything in one go: init, migrate, populate, fetch, ingest, verify
+# 4. Activate your Docker System
+
+# 5. Do everything in one go: init, migrate, populate, fetch, ingest, verify
 make all
 ```
+> If in production, `make all ENV=PROD`. It bypasses the Stripe populating with mock data, useful for DEV.
 ---
 
 #### 🛠️ Option B – Manual Step-by-Step (Full Control)
@@ -132,7 +127,7 @@ make check-db
 This flow guarantees your database and Stripe are:
 
 * **DB: Initialized** with proper schema and migrations
-* **Stripe: Populated** with synthetic but consistent test data
+* **DEV MODE. Stripe: Populated** with synthetic but consistent test data
 * **DB: Synchronized** with JSON snapshots of Stripe objects
 * **DB: Ingested** into normalized PostgreSQL tables
 * **DB: Verified** by row counts and foreign key integrity
