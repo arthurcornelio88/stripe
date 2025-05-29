@@ -140,15 +140,16 @@ tf_bucket:
 		echo "✅ Le bucket 'stripe-oltp-bucket-prod' existe déjà. Skip Terraform apply."; \
 	else \
 		echo "🚀 Le bucket n'existe pas, lancement du provisioning Terraform..."; \
-		cd infra/gcp && terraform init; \
-		cd infra/gcp && terraform plan; \
-		cd infra/gcp && terraform apply -auto-approve; \
+		terraform -chdir=infra/gcp init; \
+		terraform -chdir=infra/gcp plan; \
+		terraform -chdir=infra/gcp apply -auto-approve; \
 		echo "✅ Bucket GCS créé avec succès !"; \
 	fi
 
+
 dump:
 	@echo "💾 Dumping PostgreSQL database to JSON..."
-	python scripts/dump_db.py
+	python scripts/dump_all_tables.py
 
 push_to_cloud:
 	@echo "🚀 Uploading local data folders to GCS bucket..."
@@ -181,16 +182,6 @@ else
 	@echo "☁️ Provisioning GCS bucket with Terraform..."
 	@$(MAKE) tf_bucket
 
-	@echo "📦 Ingesting ALL tables from --source=$(SOURCE)"
-	@python scripts/ingest/ingest_all.py --source $(SOURCE) $(if $(JSON_DIR),--json-dir $(JSON_DIR))
-	@python scripts/check_db_integrity.py
-
-	@echo "💾 Dumping DB to JSON..."
-	@$(MAKE) dump
-
-	@echo "☁️ Uploading local dumps to GCS..."
-	@$(MAKE) push_to_cloud
-
 	@if [ "$(INGEST_SOURCE)" = "api" ]; then \
 		echo "📡 Ingesting from Stripe API..."; \
 		$(MAKE) ingest-all ENV=PROD SOURCE=api; \
@@ -201,6 +192,13 @@ else
 		echo "❌ Please specify INGEST_SOURCE=api or json"; \
 		exit 1; \
 	fi
+
+	@echo "💾 Dumping DB to JSON..."
+	@$(MAKE) dump
+
+	@echo "☁️ Uploading local dumps to GCS..."
+	@$(MAKE) push_to_cloud
+
 endif
 
 
