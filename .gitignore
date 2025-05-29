@@ -19,3 +19,4 @@ logs/
 
 # Data
 data/imported_stripe_data/*
+data/db_dump/*
