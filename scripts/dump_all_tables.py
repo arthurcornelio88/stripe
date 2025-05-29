@@ -16,31 +16,11 @@ from app.models import (
     subscription
 )
 
-# ============ ENVIRONMENT SETUP ============
+from app.utils.env_loader import load_project_env
+from app.utils.db_url import get_database_url
 
-ENV = os.getenv("ENV", "DEV").upper()
-env_file = f".env.{ENV.lower()}"
-
-if os.path.exists(env_file):
-    load_dotenv(dotenv_path=env_file)
-    print(f"🔧 Loaded environment from {env_file}")
-else:
-    print(f"❌ Environment file '{env_file}' not found.")
-    exit(1)
-
-# ============ DATABASE CONFIG ============
-
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5434)
-POSTGRES_DB = os.getenv("POSTGRES_DB")
-
-DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-
-# ============ SQLAlchemy ============
-
-engine = create_engine(DATABASE_URL)
+load_project_env()
+engine = create_engine(get_database_url())
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 MODELS = [

@@ -2,6 +2,8 @@
 
 export PYTHONPATH := $(shell pwd)
 ENV ?= DEV
+JSON_DIR ?= data/imported_stripe_data
+
 
 .DEFAULT_GOAL := help
 
@@ -13,9 +15,12 @@ dev-env: ## Charge l'environnement depuis le fichier .env.<ENV>
 
 # ========= TEST COMMAND ===========
 
-test: ## Lance les tests unitaires
+pytest: ## Lance les tests unitaires
 	@echo "🧪 Lancement des tests unitaires (ENV=$(ENV))..."
 	ENV=$(ENV) pytest tests/
+
+test-connection: ## Teste la connexion DB en ENV courant
+	ENV=$(ENV) python scripts/test_connection.py
 
 # ========= INIT COMMANDS ==========
 
@@ -138,11 +143,24 @@ clean: ## Supprime les données locales importées
 
 all: init-all ## Initialise, teste, et peuple les données (en DEV uniquement)
 ifeq ($(ENV),DEV)
-	@$(MAKE) test
+	@$(MAKE) test-connection ENV=DEV
+	@$(MAKE) pytest
 	@$(MAKE) populate-all
 else
-	@echo "✅ ENV=PROD → skipping tests & population"
+	@echo "✅ ENV=PROD → executing safe ingestion flow"
+	@$(MAKE) test-connection ENV=PROD
+	@if [ "$(INGEST_SOURCE)" = "api" ]; then \
+		echo "📡 Ingesting from Stripe API..."; \
+		$(MAKE) ingest-all ENV=PROD SOURCE=api; \
+	elif [ "$(INGEST_SOURCE)" = "json" ]; then \
+		echo "📁 Ingesting from JSON directory: $(JSON_DIR)"; \
+		$(MAKE) ingest-all ENV=PROD SOURCE=json JSON_DIR=$(JSON_DIR); \
+	else \
+		echo "❌ Please specify INGEST_SOURCE=api or json"; \
+		exit 1; \
+	fi
 endif
+
 
 # ========= HELP ==========
 

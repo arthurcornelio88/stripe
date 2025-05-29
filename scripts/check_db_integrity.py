@@ -2,19 +2,11 @@ import os
 import json
 from sqlalchemy import create_engine, text
 from app.utils.env_loader import load_project_env
+from app.utils.db_url import get_database_url
 
 # Load correct .env (DEV or PROD)
 ENV = load_project_env()
-
-# DB config
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5434")
-POSTGRES_DB = os.getenv("POSTGRES_DB")
-
-DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-engine = create_engine(DATABASE_URL)
+engine = create_engine(get_database_url())
 
 # JSON mapping
 TABLE_JSON_MAPPING = {
