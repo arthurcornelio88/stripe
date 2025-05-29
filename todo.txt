@@ -2,18 +2,6 @@
 2) readme
 - write ENV !
 3) verifier connexion a test_db
-AQUI 4) mettre screenshot du pipeline oltp
-4) refaire oltp.me 
-
-
-1. customers
-2. payment_methods
-3. products
-4. prices
-5. subscriptions
-6. invoices
-7. payment_intents
-8. charges
 
 Zip command
 
