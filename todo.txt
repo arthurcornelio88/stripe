@@ -1,9 +1,10 @@
 1) schema_er.png ne ressemble pas les vrais schemas, faute de place. j`ai pris les vrais schemas de l`api stripe
 2) readme
 - write ENV !
-3) verifier connexion a test_db
+3) verifier connexion a test_db 
+4) integrer test dans la cicd, meme de make oltp
 
-Zip command
+Zip command.
 
 zip -r "$(date '+%Y-%m-%d_%H-%M')_stripe_b2.zip" . \
   -x "*.venv/*" ".venv/*" ".pytest_cache/*" "*.pytest_cache/*" \
@@ -13,3 +14,13 @@ zip -r "$(date '+%Y-%m-%d_%H-%M')_stripe_b2.zip" . \
   "*.DS_Store" "*.env" \
   "*.gitignore" "*.python-version" \
   "*.alembic.ini" "*.pytest.ini" "*.todo.txt"
+
+readme for push to gcp
+- in prod
+- sur GCP, creer:
+  - project = "stripe-b2-gcp"
+  - region  = "europe-west1"
+  - set service account avec :
+  - obtenir google credentials (mettre sur infra/gcp/gcp_service_account.json)
+  
+- installer terraform (link - https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)

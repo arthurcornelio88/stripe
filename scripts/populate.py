@@ -2,15 +2,9 @@ import stripe
 import os
 import json
 import argparse
-from dotenv import load_dotenv, dotenv_values
+from utils import load_project_env
 
-load_dotenv()
-
-# Always override
-env_values = dotenv_values(".env")
-for key, value in env_values.items():
-    os.environ[key] = value
-
+ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")
 
 FIXTURE_PATH = "fixtures/stripe_batch_fixture.json"

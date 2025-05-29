@@ -9,8 +9,13 @@ wheels/
 
 # Virtual environments
 .venv
-.env
 
+Environment variables
+.env.dev
+.env.prod
+!.env.example
+
+# Old files
 old/*
 
 #Log files
@@ -20,3 +25,14 @@ logs/
 # Data
 data/imported_stripe_data/*
 data/db_dump/*
+*.zip
+
+# Secrets
+infra/gcp/gcp_service_account.json
+
+# --- Terraform ---
+infra/gcp/terraform.tfstate
+infra/gcp/terraform.tfstate.backup
+infra/gcp/.terraform.lock.hcl
+infra/gcp/gcp_service_account.json
+infra/gcp/.terraform/

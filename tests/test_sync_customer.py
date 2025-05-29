@@ -1,14 +1,22 @@
+import os
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.db.base import Base
 from app.models.customer import Customer
-import os
+from app.utils.env_loader import load_project_env
+from app.utils.db_url import get_database_url
 
-# Base de test (tu peux aussi mettre :5433 ou autre port)
-TEST_DB_URL = os.getenv("TEST_DATABASE_URL", "postgresql://stripe_user:stripe_pass@localhost:5435/stripe_test")
+# Chargement de l'environnement (.env.dev par défaut)
+ENV = load_project_env()
 
-engine = create_engine(TEST_DB_URL)
+# Configuration spécifique à la base de test
+POSTGRES_TEST_DB = os.getenv("POSTGRES_TEST_DB", "stripe_db_test")
+POSTGRES_TEST_PORT = os.getenv("POSTGRES_TEST_PORT", "5435")
+
+# Connexion SQLAlchemy à la DB de test
+TEST_DB_URL = get_database_url(db_override=POSTGRES_TEST_DB, port_override=POSTGRES_TEST_PORT)
+engine = create_engine(TEST_DB_URL, echo=(ENV == "DEV"))
 TestingSessionLocal = sessionmaker(bind=engine)
 
 @pytest.fixture(scope="session", autouse=True)

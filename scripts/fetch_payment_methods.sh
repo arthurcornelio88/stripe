@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Charge les variables d'environnement
+set -o allexport
+source .env.dev
+set +o allexport
+
 # Dossier contenant le JSON des clients
 CUSTOMERS_FILE="data/imported_stripe_data/customers.json"
 OUTPUT_DIR="data/imported_stripe_data/payment_methods"

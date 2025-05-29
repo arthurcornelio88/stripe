@@ -5,8 +5,9 @@ from app.db.session import SessionLocal
 from app.models.subscription import Subscription
 from app.transformers.subscription import stripe_subscription_to_model
 from sqlalchemy.orm import Session
+from app.utils.env_loader import load_project_env
 
-load_dotenv()
+ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")
 
 def validate_json_type(data, expected_type: str):
