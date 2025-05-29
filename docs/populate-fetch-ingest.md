@@ -35,8 +35,8 @@ The **test database** (`stripe_test`) ensures every migration & ingestion script
 
 📸 *Result after boot:*
 
-![make 1]("img/make 1.png")
-![make 1.2](attachment\:file-LmPAdmshjtTcihp2K8q2rX)
+<img src="img/make1.png" alt="make 1" width="500"/>
+<img src="img/make1_2.png" alt="make 1.2" width="300"/>
 
 ---
 
@@ -53,7 +53,7 @@ Migrations are either:
 
 Output shown:
 
-![make 2](attachment\:file-KEHfhs9rp46GkTn8ajZ8FB)
+<img src="img/make2.png" alt="make 2" width="500"/>
 
 ---
 
@@ -78,7 +78,7 @@ stripe.Customer.modify(...)
 stripe.Subscription.create(...)
 ```
 
-![make 3](attachment\:file-G7fbzfoDxLgwa1PAjm3rMy)
+<img src="img/make3.png" alt="make 3" width="500"/>
 
 ---
 
@@ -100,7 +100,7 @@ These use `curl` to:
 
 Structure saved in `data/imported_stripe_data/`
 
-*No screenshot needed here—just JSON dump.*
+<img src="img/make4.png" alt="make 4" width="500"/>
 
 ---
 
@@ -125,9 +125,8 @@ You can ingest:
 * **All**: via `ingest_all.py`
 * **One table**: `make ingest-customer SOURCE=json FILE=...`
 
-![make 5](attachment\:file-2WkGX27JqadcB2LUdq5Xag)
-![make 5.1](attachment\:file-LKRrRnGATJKbKmowrkCNHp)
-
+<img src="img/make5.png" alt="make 5" width="500"/>
+<img src="img/make5_1.png" alt="make 5_1" width="350"/>
 ---
 
 ## 🔎 Step 6: Verify JSON vs DB Integrity
@@ -148,7 +147,7 @@ SELECT COUNT(*) FROM {table}
 
 Output:
 
-![make 6](attachment\:file-Dt5kCuxEaPbVxeWshcFsr3)
+<img src="img/make6.png" alt="make 6" width="500"/>
 
 ---
 
