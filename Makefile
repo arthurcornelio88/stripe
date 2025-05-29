@@ -127,6 +127,34 @@ ingest-all: ## Ingest toutes les tables via --source
 	@python scripts/ingest/ingest_all.py --source $(SOURCE) $(if $(JSON_DIR),--json-dir $(JSON_DIR))
 	@python scripts/check_db_integrity.py
 
+# ========= GCP BUCKET COMMANDS ==========
+tf_bucket:
+	@echo "🔐 Vérification des credentials..."
+	@if [ ! -f infra/gcp/gcp_service_account.json ]; then \
+		echo "❌ Fichier manquant : infra/gcp/gcp_service_account.json"; \
+		exit 1; \
+	fi; \
+	export GOOGLE_APPLICATION_CREDENTIALS=infra/gcp/gcp_service_account.json; \
+	echo "🔎 Vérification de l'existence du bucket GCS..."; \
+	if gcloud storage buckets describe "stripe-oltp-bucket-prod" --project="stripe-b2-gcp" > /dev/null 2>&1; then \
+		echo "✅ Le bucket 'stripe-oltp-bucket-prod' existe déjà. Skip Terraform apply."; \
+	else \
+		echo "🚀 Le bucket n'existe pas, lancement du provisioning Terraform..."; \
+		cd infra/gcp && terraform init; \
+		cd infra/gcp && terraform plan; \
+		cd infra/gcp && terraform apply -auto-approve; \
+		echo "✅ Bucket GCS créé avec succès !"; \
+	fi
+
+dump:
+	@echo "💾 Dumping PostgreSQL database to JSON..."
+	python scripts/dump_db.py
+
+push_to_cloud:
+	@echo "🚀 Uploading local data folders to GCS bucket..."
+	python scripts/push_to_gcs.py
+
+
 populate-all: ## ⚠️ Populate + Fetch + Ingest-All (DEV uniquement)
 ifeq ($(ENV),DEV)
 	@$(MAKE) populate
@@ -149,6 +177,20 @@ ifeq ($(ENV),DEV)
 else
 	@echo "✅ ENV=PROD → executing safe ingestion flow"
 	@$(MAKE) test-connection ENV=PROD
+
+	@echo "☁️ Provisioning GCS bucket with Terraform..."
+	@$(MAKE) tf_bucket
+
+	@echo "📦 Ingesting ALL tables from --source=$(SOURCE)"
+	@python scripts/ingest/ingest_all.py --source $(SOURCE) $(if $(JSON_DIR),--json-dir $(JSON_DIR))
+	@python scripts/check_db_integrity.py
+
+	@echo "💾 Dumping DB to JSON..."
+	@$(MAKE) dump
+
+	@echo "☁️ Uploading local dumps to GCS..."
+	@$(MAKE) push_to_cloud
+
 	@if [ "$(INGEST_SOURCE)" = "api" ]; then \
 		echo "📡 Ingesting from Stripe API..."; \
 		$(MAKE) ingest-all ENV=PROD SOURCE=api; \
@@ -160,6 +202,8 @@ else
 		exit 1; \
 	fi
 endif
+
+
 
 
 # ========= HELP ==========

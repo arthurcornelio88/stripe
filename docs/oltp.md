@@ -34,13 +34,74 @@ scripts/
 ├── fetch_*.sh              # Bash scripts for Stripe API fetch
 ├── populate.py             # Populates sandbox using fixtures
 ├── check_db_integrity.py   # Validates row counts
+tests/
+├── ingest/                 # Test ingest per table (GraphQL-style: test_price.py, etc.)
+├── test_customer.py        # Customer ingestion, placeholder, duplicates
+├── test_charge.py          # Charge ingestion, deduplication
 ```
 
 The design ensures modularity, testability, and adherence to Stripe’s schema.
 
+## ⚡ Step 0: in a rush
+
+### 🔧 `.env.dev` and `.env.prod`
+
+Split from `.env.example` template:
+
+```bash
+# ========================
+# Environnement LOCAL DEV
+# ========================
+ENV=DEV
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=
+POSTGRES_DB=postgres
+POSTGRES_PORT=5432
+POSTGRES_HOST=localhost
+POSTGRES_TEST_DB=postgres_test
+POSTGRES_TEST_PORT=5433
+STRIPE_API_KEY=<sk_test_...>
+
+# ========================
+# Environnement PROD
+# ========================
+ENV=PROD
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=<TON_MOT_DE_PASSE_SUPABASE>
+POSTGRES_DB=postgres
+POSTGRES_PORT=5432
+POSTGRES_HOST=db.<ton-projet>.supabase.co
+STRIPE_API_KEY=<sk_live_...>
+```
+
+> **Note:** For Supabase, use the **IPv4 connection pooling string** (found under Project > Database > Connection Pooling). This ensures compatibility with `psycopg2`.
+
+### 🚀 CLI bootstrap
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/arthurcornelio88/stripe.git
+cd stripe
+
+# 2. Sync the environment
+uv sync
+
+# 3. Activate the virtual environment
+source .venv/bin/activate
+
+# 4. Activate your Docker System
+
+# 5. Do everything in one go: init, migrate, populate, fetch, ingest, verify
+make all ENV=DEV
+
+# 6. Production-safe ingest
+make all ENV=PROD INGEST_SOURCE=api
+```
 ---
 
 ## 📆 Step 1: Create Databases & Tables
+
+If you have time to understand what's happening and if you want have more control of the workflow, start by here. Don't forget to set the environment variables, as describe in `Step 0`.
 
 ### `make init-db` runs:
 
@@ -62,7 +123,7 @@ The **test database** (`stripe_db_test`) is used by CI and Pytest for isolated e
 
 ---
 
-## 🧪 Unified Dev + Test Setup
+## 🧪 Unified Dev + Test Setup and DB Connection
 
 The OLTP pipeline is now fully **Dev + Test + Prod ready**.
 
@@ -136,16 +197,6 @@ Asserts that the table contains only one instance of the charge ID
 
 ---
 
-#### 🧪 Isolation & cleanup
-
-All tests use a `db` fixture linked to `stripe_db_test`
-The test DB is wiped and rebuilt before each session (`drop_all → create_all`)
-
-Each test runs in an isolated SQLAlchemy session
-Tables are cleaned between tests to ensure full transactional independence
-
----
-
 ### 🔁 Stripe Sync Scripts (Live Ingestion)
 
 A full set of `sync_*` ingestion scripts maps Stripe live API objects into normalized Postgres tables.
@@ -180,12 +231,32 @@ Scripts print concise ingestion output:
 * `➕ Added invoice: ...`
 * `✅ Skipped existing invoice: ...`
 
----
+### 🛠️ Test Connection Utility
 
-💡 You now have a fully production-ready ingestion chain, fully validated through unit tests and live API data — reliable, idempotent, and scalable.
+Run:
 
-Souhaites-tu aussi que je fasse une passe de clean-up globale ou que je t’assemble le `oltp.md` complet prêt à push ?
+```bash
+make test-connection ENV=DEV # or PROD
+```
 
+Validates:
+
+* In DEV: connection to PostgreSQL DBs in Docker Containter
+* In PROD: connection to PostgreSQL DB in Supabase
+* Connection with SSL handling
+* Environment variable correctness
+* Output: ✅ or ❌ with details
+
+<img src="img/make9_1.png" alt="make 9_1" width="300"/>
+<img src="img/make9_2.png" alt="make 9_2" width="300"/>
+
+```python
+from sqlalchemy import create_engine
+...
+SSL_MODE = os.getenv("SSL_MODE", "disable" if ENV == "DEV" else "require")
+url = f"postgresql+psycopg2://..."
+engine = create_engine(url)
+```
 
 ---
 
@@ -298,7 +369,130 @@ SELECT COUNT(*) FROM {table}
 
 ---
 
-## 🧪 Schema Coverage (ex.: Customer)
+Voici une **version refactorée** de ta section **Step 7: Go Production 🚀**, avec les ajouts suivants :
+
+* Mention rapide de la **configuration GCP obligatoire** en haut.
+* Lien vers le guide `docs/setup_gcp.md`.
+* Justification claire : cette config GCP est requise car `make all ENV=PROD` déclenche un **dump de la base et un push vers GCP**.
+
+---
+
+## 🔒 Step 7: Go Production 🚀
+
+Before moving to production, make sure your **Google Cloud setup is ready**.
+
+> ⚠️ GCP configuration is **required** because the production workflow automatically pushes data dumps to a Google Cloud Storage bucket.
+> See [docs/setup\_gcp.md](../docs/setup_gcp.md) to configure your project, service account, and Terraform setup.
+
+---
+
+If everything works smoothly in development — either step-by-step or with:
+
+```bash
+make all ENV=DEV
+```
+
+—you’re ready for **production**.
+
+We use **Supabase** as our production PostgreSQL host. It's scalable, developer-friendly, and supports SSL with connection pooling.
+That said, you're free to use **any PostgreSQL provider** that meets the following:
+
+* ✅ Exposes a secure public endpoint
+* ✅ Supports SSL and pooled connections
+* ✅ Is compatible with `psycopg2` (most modern services are)
+
+---
+
+### 🛠️ Configure Your `.env.prod`
+
+Copy `.env.example` into `.env.prod` and update it with your production settings:
+
+```bash
+ENV=PROD
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=<YOUR_SUPABASE_PASSWORD>
+POSTGRES_DB=postgres
+POSTGRES_PORT=6543                # ⚠️ Not 5432 on Supabase by default
+POSTGRES_HOST=db.<your-project>.supabase.co
+STRIPE_API_KEY=<sk_live_...>      # Use your live key!
+```
+
+> 🧠 **Pro tip**: Supabase provides **connection pooling**.
+> Use the pooled connection string from **Project → Database → Connection Pooling → IPv4 SSL string** to reduce cold starts and avoid TCP exhaustion.
+
+---
+
+### 🔁 Production Ingest
+
+You’re now ready to ingest data in production using:
+
+```bash
+make all ENV=PROD INGEST_SOURCE=api
+```
+
+This command will:
+
+* ✅ **Check the database connection** (`test-connection`)
+* ☁️ **Provision the GCS bucket** (via Terraform, only if it doesn't exist)
+* 📦 **Ingest all OLTP tables** from the selected source (`SOURCE=api` or `json`)
+* 🧪 **Run a data integrity check** (`check_db_integrity.py`)
+* 💾 **Dump the entire OLTP database** to a timestamped JSON file (`data/db_dump/`)
+* ☁️ **Upload the local data** to GCS, including:
+
+  * `data/imported_stripe_data/`
+  * `data/db_dump/`
+
+> 🧠 The GCS provisioning step requires prior setup — see [docs/setup\_gcp.md](setup_gcp.md).
+
+---
+
+#### 💾 Alternatively: Ingest from JSON
+
+If you’ve already fetched data from Stripe and saved it locally as `.json` files, you can ingest it offline using:
+
+```bash
+make all ENV=PROD INGEST_SOURCE=json JSON_DIR=data/imported_stripe_data
+```
+
+This is useful for replaying a previous snapshot, syncing offline exports, or testing deterministic loads.
+
+---
+
+📸 *Here’s an example of production data successfully ingested into Supabase*:
+
+<img src="img/make8.png" alt="supabase production" width="600"/>
+
+
+---
+
+### 🧷 Safety Checks
+
+Even in production:
+
+* `make populate` is **blocked** (sandbox-only)
+* All destructive operations are disabled unless `ENV=DEV`
+* Scripts use a local cache of `existing_ids` to prevent duplicates
+* Transformers validate structure before DB insertion
+
+---
+
+## ✅ You’re Live!
+
+Congratulations — your OLTP Stripe ingestion pipeline is now:
+
+| Layer       | Status      |
+| ----------- | ----------- |
+| DEV setup   | ✅ Done      |
+| Testing     | ✅ Isolated  |
+| Supabase    | ✅ Connected |
+| Stripe Live | ✅ Synced    |
+
+Your production database now mirrors Stripe, reliably and safely.
+
+---
+
+
+## 🧪 To go further: schema Coverage (ex.: Customer)
 
 Each `ingest_{table}.py` script is part of a well-structured ingestion chain:
 
@@ -370,6 +564,7 @@ The transformer:
 | `ingest/ingest_{table}.py` | Table-specific JSON ingestion       |
 | `ingest_all.py`            | Ingests all in dependency order     |
 | `check_db_integrity.py`    | Compares row counts (JSON vs DB)    |
+| `dump_all_tables.py`       | For OLAP step !                     | 
 
 ---
 

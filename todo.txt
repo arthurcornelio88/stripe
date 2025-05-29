@@ -14,3 +14,13 @@ zip -r "$(date '+%Y-%m-%d_%H-%M')_stripe_b2.zip" . \
   "*.DS_Store" "*.env" \
   "*.gitignore" "*.python-version" \
   "*.alembic.ini" "*.pytest.ini" "*.todo.txt"
+
+readme for push to gcp
+- in prod
+- sur GCP, creer:
+  - project = "stripe-b2-gcp"
+  - region  = "europe-west1"
+  - set service account avec :
+  - obtenir google credentials (mettre sur infra/gcp/gcp_service_account.json)
+  
+- installer terraform (link - https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
