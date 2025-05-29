@@ -35,7 +35,7 @@ The **test database** (`stripe_test`) ensures every migration & ingestion script
 
 📸 *Result after boot:*
 
-![make 1](img/make 1.png)
+![make 1]("img/make 1.png")
 ![make 1.2](attachment\:file-LmPAdmshjtTcihp2K8q2rX)
 
 ---
