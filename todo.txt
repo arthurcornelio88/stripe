@@ -4,7 +4,7 @@
 3) verifier connexion a test_db 
 4) integrer test dans la cicd, meme de make oltp
 
-Zip command
+Zip command.
 
 zip -r "$(date '+%Y-%m-%d_%H-%M')_stripe_b2.zip" . \
   -x "*.venv/*" ".venv/*" ".pytest_cache/*" "*.pytest_cache/*" \
