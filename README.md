@@ -103,13 +103,13 @@ source .venv/bin/activate
 make init-db
 make init-migration
 
-# 5. Populate Stripe sandbox with sample test fixtures
+# 5. Populate Stripe sandbox with sample test fixtures (if in dev mode)
 make populate
 
 # 6. Fetch data from Stripe and export it into local JSON files
 make fetch
 
-# 7. Ingest JSON data into PostgreSQL using SQLAlchemy
+# 7. Ingest JSON data into PostgreSQL using SQLAlchemy (if you made make fetch)
 make ingest-all SOURCE=json JSON_DIR=data/imported_stripe_data
 
 # 8. Verify row-level integrity and foreign key consistency
@@ -117,10 +117,8 @@ make check-db
 ```
 
 #### 💡 **Need to dive deeper?**
-> You’ll find full details on the database setup, Alembic workflow, and container schema sync here:
-> 👉 [`docs/create-db-and-migrations.md`](docs/create-db-and-migrations.md)
 > For an end-to-end walkthrough of the full ingestion pipeline — from sandbox population to data verification — head over to:
-> 👉 [`docs/populate-fetch-ingest.md`](docs/populate-fetch-ingest.md)
+> 👉 [`Stripe OLTP Data Pipeline`](docs/oltp.md)
 
 ---
 
