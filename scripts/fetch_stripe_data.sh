@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Charge les variables d'environnement
+set -o allexport
+source .env.dev
+set +o allexport
+
 mkdir -p data/imported_stripe_data
 
 echo 'Fetching customers...'

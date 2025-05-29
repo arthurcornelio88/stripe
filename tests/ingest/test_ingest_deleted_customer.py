@@ -3,24 +3,24 @@ from sqlalchemy.orm import Session
 from app.models.customer import Customer
 from app.utils.stripe_helpers import ensure_customer_exists
 
-def test_ensure_deleted_customer_placeholder_created(test_db: Session):
+def test_ensure_deleted_customer_placeholder_created(db: Session):
     ghost_id = "cus_DELETED123"
 
     # Safety: should not exist
-    existing = test_db.get(Customer, ghost_id)
+    existing = db.get(Customer, ghost_id)
     if existing:
-        test_db.delete(existing)
-        test_db.commit()
+        db.delete(existing)
+        db.commit()
 
     # Ensure the customer does NOT exist
-    assert test_db.get(Customer, ghost_id) is None
+    assert db.get(Customer, ghost_id) is None
 
     # Run the logic
-    ensure_customer_exists(test_db, ghost_id)
-    test_db.commit()  # Required for persistence
+    ensure_customer_exists(db, ghost_id)
+    db.commit()  # Required for persistence
 
     # Fetch again
-    ghost = test_db.get(Customer, ghost_id)
+    ghost = db.get(Customer, ghost_id)
 
     # ✅ Check all expected fields
     assert ghost is not None

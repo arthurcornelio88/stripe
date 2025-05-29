@@ -6,7 +6,7 @@ from app.models.payment_intent import PaymentIntent
 from app.transformers.payment_intent import stripe_payment_intent_to_model
 from app.utils.stripe_helpers import ensure_customer_exists
 from sqlalchemy.orm import Session
-from utils import load_project_env
+from app.utils.env_loader import load_project_env
 
 ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")

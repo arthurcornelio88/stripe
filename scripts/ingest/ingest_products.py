@@ -5,7 +5,7 @@ from app.db.session import SessionLocal
 from app.models.products import Product
 from app.transformers.products import stripe_product_to_model
 from sqlalchemy.orm import Session
-from utils import load_project_env
+from app.utils.env_loader import load_project_env
 
 ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")

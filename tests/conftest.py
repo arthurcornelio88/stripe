@@ -16,7 +16,7 @@ ENV = load_project_env()
 POSTGRES_USER = os.getenv("POSTGRES_USER")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
-POSTGRES_TEST_DB = os.getenv("POSTGRES_TEST_DB", "stripe_test")
+POSTGRES_TEST_DB = os.getenv("POSTGRES_TEST_DB", "stripe_db_test")
 POSTGRES_TEST_PORT = os.getenv("POSTGRES_TEST_PORT", "5435")
 
 # Connexion SQLAlchemy

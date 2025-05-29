@@ -6,7 +6,7 @@ from app.models.invoice import Invoice
 from app.transformers.invoice import stripe_invoice_to_model
 from app.utils.stripe_helpers import ensure_customer_exists
 from sqlalchemy.orm import Session
-from utils import load_project_env
+from app.utils.env_loader import load_project_env
 
 ENV = load_project_env()
 stripe.api_key = os.getenv("STRIPE_API_KEY")

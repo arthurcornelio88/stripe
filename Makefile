@@ -11,6 +11,12 @@ dev-env: ## Charge l'environnement depuis le fichier .env.<ENV>
 	chmod +x scripts/dev_env.sh
 	./scripts/dev_env.sh
 
+# ========= TEST COMMAND ===========
+
+test: ## Lance les tests unitaires
+	@echo "🧪 Lancement des tests unitaires (ENV=$(ENV))..."
+	ENV=$(ENV) pytest tests/
+
 # ========= INIT COMMANDS ==========
 
 init-all: ## Initialise DB + migrations
@@ -19,13 +25,11 @@ init-all: ## Initialise DB + migrations
 
 init-db: ## Initialise PostgreSQL local (DEV) ou distant (PROD)
 ifeq ($(ENV),DEV)
-	docker-compose up -d
+	docker-compose --env-file .env.dev up -d
 	@echo "⏳ Waiting for Postgres..."
 	@sleep 3
 	@until pg_isready -h localhost -p 5434 > /dev/null; do echo "⏳ Waiting for Postgres at localhost:5434..."; sleep 1; done
 	@echo "✅ Postgres is ready!"
-	@echo "🧱 Creating test database if needed"
-	@docker exec -it stripe_db psql -U stripe_user -d postgres -c "CREATE DATABASE stripe_test;" || echo "✔️ stripe_test already exists."
 else
 	@echo "✅ ENV=PROD → skipping local DB startup"
 endif
@@ -132,11 +136,12 @@ clean: ## Supprime les données locales importées
 	@echo "🧹 Nettoyage des données locales..."
 	@rm -rf data/imported_stripe_data/*
 
-all: init-all ## Initialise le projet. Appelle populate-all en DEV uniquement
+all: init-all ## Initialise, teste, et peuple les données (en DEV uniquement)
 ifeq ($(ENV),DEV)
+	@$(MAKE) test
 	@$(MAKE) populate-all
 else
-	@echo "✅ ENV=PROD → skipping populate-all"
+	@echo "✅ ENV=PROD → skipping tests & population"
 endif
 
 # ========= HELP ==========

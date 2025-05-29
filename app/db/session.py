@@ -1,7 +1,7 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from utils.env_loader import load_project_env
+from app.utils.env_loader import load_project_env
 
 # Charger .env.dev ou .env.prod selon ENV
 ENV = load_project_env()
