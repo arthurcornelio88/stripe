@@ -36,7 +36,7 @@ The **test database** (`stripe_test`) ensures every migration & ingestion script
 📸 *Result after boot:*
 
 <img src="img/make1.png" alt="make 1" width="500"/>
-<img src="img/make1_2.png" alt="make 1.2" width="300"/>
+<img src="img/make1_2.png" alt="make 1.2" width="500"/>
 
 ---
 
@@ -126,7 +126,7 @@ You can ingest:
 * **One table**: `make ingest-customer SOURCE=json FILE=...`
 
 <img src="img/make5.png" alt="make 5" width="500"/>
-<img src="img/make5_1.png" alt="make 5_1" width="350"/>
+<img src="img/make5_1.png" alt="make 5_1" width="500"/>
 ---
 
 ## 🔎 Step 6: Verify JSON vs DB Integrity
