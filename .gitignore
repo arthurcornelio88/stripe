@@ -30,7 +30,9 @@ data/db_dump/*
 # Secrets
 infra/gcp/gcp_service_account.json
 
-# Terraform
+# --- Terraform ---
 infra/gcp/terraform.tfstate
 infra/gcp/terraform.tfstate.backup
-infra/gcp/.terraform.*
+infra/gcp/.terraform.lock.hcl
+infra/gcp/gcp_service_account.json
+infra/gcp/.terraform/
